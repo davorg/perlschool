@@ -1,0 +1,47 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Template;
+use PerlSchool::Schema;
+
+my $tt  = Template->new(
+  INCLUDE_PATH => [qw(in ttlib)],
+  OUTPUT_PATH  => 'docs',
+  WRAPPER      => 'page.tt',
+);
+my $sch = PerlSchool::Schema->get_schema;
+my $rs  = $sch->resultset('Book');
+
+my @books = $rs->search(undef, {
+  order_by => { -desc => 'pubdate' }
+} );
+
+$tt->process(
+  'index.html.tt', {
+    feature => $books[0],
+    books   => [ @books[1 .. $#books] ],
+  },
+  'index.html',
+) or die $tt->error;
+
+for (qw[books about]) {
+  $tt->process(
+    "$_.html.tt", {
+      books => \@books,
+    },
+    "$_/index.html",
+  ) or die $tt->error;
+}
+
+for (@books) {
+  $tt->process(
+    'book.html.tt', {
+      feature => $_,
+      books   => \@books,
+    },
+    'books/' . $_->slug . '/index.html',
+  ) or die $tt->error;
+}

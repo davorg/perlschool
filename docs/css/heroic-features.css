@@ -1,0 +1,20 @@
+/*!
+ * Start Bootstrap - Heroic Features (https://startbootstrap.com/templates/heroic-features)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-heroic-features/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+  background-color: #e0e0e0;
+}
+
+.jumbletron {
+  background-color: #e0e0e0;
+}
+
+img.float {
+  float: right;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  filter: drop-shadow(8px 8px 8px #222);
+}

@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use feature 'say';
+
+use PerlSchool::Schema;
+
+my $sch = PerlSchool::Schema->get_schema;
+my $rs  = $sch->resultset('Book');
+
+my @cols = qw[title author slug subtitle amazon_isin leanpub_slug
+              blurb examples pubdate];
+
+while (<>) {
+  chomp;
+  my %book;
+
+  @book{@cols} = map { $_ || undef } split /\|/;
+  $book{image} = "$book{slug}.png";
+
+  $rs->create(\%book);
+}

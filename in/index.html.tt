@@ -1,0 +1,14 @@
+      <div class="row">
+        <div class="col-md-7">
+	  <h1 class="display-3">[% feature.title %]</h1>
+[% IF feature.subtitle -%]
+          <h2 class="display-4">[% feature.subtitle %]</h2>
+[% END -%]
+	  <h2>By [% feature.author %]</h2>
+          <p class="lead">[% feature.blurb | html %]</p>
+          <a href="/books/[% feature.slug %]" class="btn btn-primary btn-lg">Read more...</a>
+	</div>
+	<div class="col-md-5">
+	  <p><img src="/images/[% feature.image %]" class="img-fluid"></p>
+	</div>
+      </div>

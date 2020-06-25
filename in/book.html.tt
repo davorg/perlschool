@@ -1,0 +1,48 @@
+[% MACRO amazon_link(site, asin) BLOCK;
+   domain = site.lower;
+   links = {
+     JP => 'co.jp',
+     MX => 'com.mx',
+     UK => 'co.uk',
+     US => 'com',
+   };
+
+   IF links.site;
+     domain = links.site;
+   END;
+
+'https://amazon.' _ domain _ '/dp/' _ asin;
+   
+   END -%]
+      <div class="row">
+        <div class="col-md-12">
+	  <h1 class="display-3">[% feature.title %]</h1>
+[% IF feature.subtitle -%]
+          <h2 class="display-4">[% feature.subtitle %]</h2>
+[% END -%]
+        </div>
+	<div class="col-md-6">
+	  <p><img src="/images/[% feature.image %]" class="img-fluid"></p>
+	</div>
+        <div class="col-md-6">
+	  <h2>By [% feature.author %]</h2>
+          <p class="lead">[% feature.blurb | html %]</p>
+[% IF feature.examples -%]
+          <h3>Example code</h3>
+          <ul>
+            <li><a href="/examples/[% feature.examples %].zip">[% feature.examples %].zip</a> (Windows line endings)</li>
+            <li><a href="/examples/[% feature.examples %].tar.gz">[% feature.examples %].tar.gz</a> (Unix/Linux line endings)</li>
+          </ul>
+[% END -%]
+[% IF feature.leanpub_slug -%]
+          <p><a href="https://leanpub.com/[% feature.leanpub_slug %]">Buy from LeanPub</a></p>
+[% END -%]
+[% IF feature.amazon_isin -%]
+          <p>
+[%   FOR site IN ['AU', 'BR', 'CA', 'DE', 'ES', 'FR', 'IN', 'IT', 'JP', 'MX', 'NL', 'UK', 'US' ] -%]
+          <a href="[% amazon_link(site, feature.amazon_isin) %]">Buy from Amazon [% site %]</a><br>
+[%   END -%]
+          </p>
+[% END -%]
+	</div>
+      </div>

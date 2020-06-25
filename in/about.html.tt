@@ -1,0 +1,62 @@
+      <div class="row">
+        <div class="col-md-12">
+	  <h1 class="display-3">About Perl School</h1>
+          <p>The Perl School brand has its roots in a series of low-cost
+            Perl training courses that Dave Cross ran in 2012. By running
+            low-cost training at the weekend, he hoped to encourage more
+            programmers to keep their Perl knowledge up to date. These
+            courses were run regularly for about a year before the idea
+            was put on hold for a while.</p>
+
+          <p>Dave always knew that he would want to return to the Perl
+            School brand at some point and late in 2017 he realised what
+            the obvious next step was low-cost Perl books. He had already
+            developed a pipeline for creating e-books from Markdown files
+            so it was a short step to republishing some of his training
+            materials as books.</p>
+
+          <p>The first Perl School book,
+            <a href="/books/perl-taster/"><i>Perl Taster</i></a> was published
+            at the end of 2017 (just in time for the London Perl Workshop).
+            The second was
+            <a href="/books/selenium-perl/"><i>Selenium and Perl</i></a> and
+            <a href="/books/">several more</a> have followed since then.</p>
+
+          <p>If you are interested in writing a book for the Perl School
+            range, then please get in touch. We are
+            <a href="https://twitter.com/perl_school">@perl_school</a> on
+            Twitter.</p>
+
+          <h1 class="display-3">About Dave Cross</h1>
+
+          <p><img src="/images/dave.jpg" class="float">
+            Dave Cross has been programming professionally since 1988 and
+            using Perl since 1996. In that time he has used Perl as a glue
+            language, for web development and as a general purpose
+            programming language. He is the author of <i>Data Munging with
+            Perl</i> (Manning, 2001) and a co-author of <i>Perl Template
+            Toolkit</i> (O’Reilly, 2003). He has also written articles about
+            Perl for <i>The Perl Journal</i> and <i>Linux Format</i>.</p>
+
+          <p>Dave has run training courses on Perl since 2001. He has run
+            in-house courses for companies ranging from investment banks to
+            dotcoms and he regularly runs public courses in London. He is
+            often invited to give training courses alongside open source
+            conferences like the UKUUG Spring Conference and the London Perl
+            Workshop. He is a regular speaker at both Perl and open source
+            conferences.</p>
+
+          <p>Dave has been heavily involved in the Perl community for many
+            years. In 1998, he founded the London Perl Mongers, the first
+            Perl Users’ Group in Europe and he lead the group for its first
+            four years. He then became the International User Groups
+            Co-ordinator for the Perl Foundation. In 2004 he was awarded a
+            White Camel award for his services to the Perl community.</p>
+
+          <p>Dave owns and runs
+            <a href="https://mag-sol.com/">Magnum Solutions</a>, an open
+            source development consultancy based in London. The rumours
+            about the gold-plated cats were never true.</p>
+
+        </div>
+      </div>
