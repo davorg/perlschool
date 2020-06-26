@@ -38,9 +38,9 @@
           <p><a href="https://leanpub.com/[% feature.leanpub_slug %]">Buy from LeanPub</a></p>
 [% END -%]
 [% IF feature.amazon_isin -%]
-          <p>
+          <p>Buy from Amazon<br>
 [%   FOR site IN ['AU', 'BR', 'CA', 'DE', 'ES', 'FR', 'IN', 'IT', 'JP', 'MX', 'NL', 'UK', 'US' ] -%]
-          <a href="[% amazon_link(site, feature.amazon_isin) %]">Buy from Amazon [% site %]</a><br>
+          <a href="[% amazon_link(site, feature.amazon_isin) %]">[% site %]</a> 
 [%   END -%]
           </p>
 [% END -%]
