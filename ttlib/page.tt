@@ -25,6 +25,12 @@
   <!-- Custom styles for this template -->
   <link href="/css/heroic-features.css" rel="stylesheet">
 
+[% IF feature -%]
+  <script type="application/ld+json">
+[% feature.json_ld %]
+  </script>
+[% END -%]
+
 </head>
 
 <body>
@@ -66,7 +72,7 @@
 
     <!-- Go to washboard to customize your tools -->
     <div class="addthis_native_toolbox"></div>
-              
+
     </header>
 
     <!-- Page Features -->

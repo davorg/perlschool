@@ -123,6 +123,26 @@ __PACKAGE__->add_columns(
 # Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-06-25 16:41:49
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MlBwavmULSP5+s2q2Lg+Vg
 
+use Moo;
+with 'MooX::Role::JSON_LD';
+
+sub json_ld_type { 'Book' };
+
+sub json_ld_fields { [
+  { name => sub {
+    $_[0]->subtitle ? $_[0]->title . ' - ' . $_[0]->subtitle : $_[0]->title}
+  },
+  { bookFormat => sub { 'EBook' } },
+  { author => sub { {
+    name => $_[0]->author,
+    '@type' => 'Person',
+  } } },
+  { datePublished => sub { $_[0]->pubdate->strftime('%Y-%m-%d') }},
+  { publisher => sub { {
+    name => 'Perl School Publishing',
+    '@type' => 'Organization',
+  } } },
+]}
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
