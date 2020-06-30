@@ -19,6 +19,9 @@ my @books = $rs->search(undef, {
   order_by => { -desc => 'pubdate' }
 } );
 
+my $canonical_url = 'https://perlschool.com/';
+my @urls;
+
 $tt->process(
   'index.html.tt', {
     feature => $books[0],
@@ -27,6 +30,8 @@ $tt->process(
   'index.html',
 ) or die $tt->error;
 
+push @urls, $canonical_url;
+
 for (qw[books about contact]) {
   $tt->process(
     "$_.html.tt", {
@@ -34,6 +39,8 @@ for (qw[books about contact]) {
     },
     "$_/index.html",
   ) or die $tt->error;
+
+  push @urls, "$canonical_url$_/";
 }
 
 for (@books) {
@@ -44,4 +51,13 @@ for (@books) {
     },
     'books/' . $_->slug . '/index.html',
   ) or die $tt->error;
+
+  push @urls, $canonical_url . $_->slug . '/';
 }
+
+$tt->process(
+  'sitemap.xml.tt', {
+    urls => \@urls,
+  },
+  'sitemap.xml',
+) or die $tt->error;

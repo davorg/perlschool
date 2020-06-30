@@ -1,3 +1,4 @@
+[% IF template.name.match('\.html') -%]
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,3 +118,4 @@
 </body>
 
 </html>
+[% ELSE; content; END -%]
