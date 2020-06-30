@@ -1,3 +1,12 @@
+[% title = 'Perl School Publishing';
+   IF template.name.match('^book\.');
+     title = feature.title _ ' - ' _ title;
+   ELSIF ! template.name.match('^index');
+     page_title = template.name.split('\.').0.ucfirst;
+     title = page_title _ ' - ' _ title;
+   ELSE;
+     title = title _ ' - Perl eBooks written by experts';
+   END -%]
 [% IF template.name.match('\.html') -%]
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +27,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Perl School Publishing - Perl eBooks written by experts</title>
+  <title>[% title %]</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
