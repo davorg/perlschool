@@ -3,10 +3,13 @@
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src://www.googletag/js?id=UA-56332-44"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56332-44"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gta gtag('config', 'UA-56332-44');
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-56332-44');
   </script>
 
   <meta charset="utf-8">
