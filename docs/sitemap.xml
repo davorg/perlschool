@@ -17,31 +17,31 @@
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/preparing-for-perl-7/</loc>
+      <loc>https://perlschool.com/books/preparing-for-perl-7/</loc>
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/the-best-of-perl-hacks/</loc>
+      <loc>https://perlschool.com/books/the-best-of-perl-hacks/</loc>
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/cucumber/</loc>
+      <loc>https://perlschool.com/books/cucumber/</loc>
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/learning-perl-exercises/</loc>
+      <loc>https://perlschool.com/books/learning-perl-exercises/</loc>
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/mojolicious-web-clients/</loc>
+      <loc>https://perlschool.com/books/mojolicious-web-clients/</loc>
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/selenium-perl/</loc>
+      <loc>https://perlschool.com/books/selenium-perl/</loc>
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/perl-taster/</loc>
+      <loc>https://perlschool.com/books/perl-taster/</loc>
       <priority>1</priority>
    </url>
 </urlset>

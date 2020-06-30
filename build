@@ -26,6 +26,7 @@ $tt->process(
   'index.html.tt', {
     feature => $books[0],
     books   => [ @books[1 .. $#books] ],
+    canonical => $canonical_url,
   },
   'index.html',
 ) or die $tt->error;
@@ -36,6 +37,7 @@ for (qw[books about contact]) {
   $tt->process(
     "$_.html.tt", {
       books => \@books,
+      canonical => "$canonical_url$_/",
     },
     "$_/index.html",
   ) or die $tt->error;
@@ -48,11 +50,12 @@ for (@books) {
     'book.html.tt', {
       feature => $_,
       books   => \@books,
+      canonical => $canonical_url . 'books/' . $_->slug . '/',
     },
     'books/' . $_->slug . '/index.html',
   ) or die $tt->error;
 
-  push @urls, $canonical_url . $_->slug . '/';
+  push @urls, $canonical_url . 'books/' . $_->slug . '/';
 }
 
 $tt->process(

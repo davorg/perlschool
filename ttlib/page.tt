@@ -26,6 +26,10 @@
   <!-- Custom styles for this template -->
   <link href="/css/heroic-features.css" rel="stylesheet">
 
+[% IF canonical -%]
+  <link rel="canonical" href="[% canonical %]" />
+[% END -%]
+
 [% IF feature -%]
   <script type="application/ld+json">
 [% feature.json_ld %]
