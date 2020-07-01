@@ -1,9 +1,20 @@
 [% title = 'Perl School Publishing';
+   description = 'Perl eBooks written by experts';
+   image = 'https://perlschool.com/images/perlschool-logo.png';
+   type = 'website';
    IF template.name.match('^book\.');
      title = feature.title _ ' - ' _ title;
+     description = feature.blurb;
+     image = 'https://perlschool.com/images/' _ feature.image;
+     type = 'book';
    ELSIF ! template.name.match('^index');
      page_title = template.name.split('\.').0.ucfirst;
-     title = page_title _ ' - ' _ title;
+     IF template.name.match('^books\.');
+       title = 'List of books - ' _ title;
+       description = 'List of books published by Perl School Publishing';
+     ELSE;
+       title = page_title _ ' - ' _ title;
+     END;
    ELSE;
      title = title _ ' - Perl eBooks written by experts';
    END -%]
@@ -26,6 +37,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+
+  <meta property="og:title" content="[% title %]" />
+  <meta property="og:url" content="[% canonical %]" />
+  <meta property="og:image" content="[% image %]" />
+  <meta property="og:type" content="[% type %]" />
+  <meta property="og:description" content="[% description %]" />
+
 
   <title>[% title %]</title>
 
