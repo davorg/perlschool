@@ -22,7 +22,8 @@
 [% END -%]
         </div>
 	<div class="col-md-6">
-	  <p><img src="/images/[% feature.image %]" class="img-fluid"></p>
+	  <p><img src="/images/[% feature.image %]" class="img-fluid"
+               alt="[% feature.title %]"></p>
 	</div>
         <div class="col-md-6">
 	  <h2>By [% feature.author %]</h2>

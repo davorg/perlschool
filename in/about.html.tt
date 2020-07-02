@@ -29,7 +29,7 @@
 
           <h1 class="display-3">About Dave Cross</h1>
 
-          <p><img src="/images/dave.jpg" class="float">
+          <p><img src="/images/dave.jpg" class="float" alt="Dave Cross">
             Dave Cross has been programming professionally since 1988 and
             using Perl since 1996. In that time he has used Perl as a glue
             language, for web development and as a general purpose

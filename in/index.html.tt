@@ -9,6 +9,7 @@
           <a href="/books/[% feature.slug %]" class="btn btn-primary btn-lg">Read more...</a>
 	</div>
 	<div class="col-md-5">
-	  <p><img src="/images/[% feature.image %]" class="img-fluid"></p>
+	  <p><img src="/images/[% feature.image %]" class="img-fluid"
+               alt="[% feature.title %]"></p>
 	</div>
       </div>
