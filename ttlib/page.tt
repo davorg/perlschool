@@ -74,7 +74,10 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="/"><img src="/images/perlschool-logo.png" alt="Perl School Publishing"></a>
+      <a class="navbar-brand" href="/"><picture>
+        <source srcset="/images/perlschool-logo.webp">
+        <img src="/images/perlschool-logo.png" alt="Perl School Publishing">
+      </picture></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -116,7 +119,11 @@
 [% FOR book IN books -%]
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="/images/[% book.image %]" alt="[% book.title %]">
+          <picture>
+            <source srcset="/images/[% book.image %].webp">
+            <img class="card-img-top" src="/images/[% book.image %].png"
+              alt="[% book.title %]">
+          </picture>
           <div class="card-body">
             <h4 class="card-title">[% book.title %]</h4>
             <p class="card-text">[% book.blurb | truncate(50, '&hellip;') %]</p>

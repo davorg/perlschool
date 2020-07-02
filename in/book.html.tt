@@ -22,8 +22,11 @@
 [% END -%]
         </div>
 	<div class="col-md-6">
-	  <p><img src="/images/[% feature.image %]" class="img-fluid"
-               alt="[% feature.title %]"></p>
+	  <p><picture>
+            <source srcset="/images/[% feature.image %].webp">
+            <img src="/images/[% feature.image %].png" class="img-fluid"
+               alt="[% feature.title %]">
+          </picture></p>
 	</div>
         <div class="col-md-6">
 	  <h2>By [% feature.author %]</h2>
