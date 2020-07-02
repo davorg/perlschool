@@ -26,6 +26,7 @@
 	</div>
         <div class="col-md-6">
 	  <h2>By [% feature.author %]</h2>
+          <p><b>Publication date: [% feature.pubdate.strftime('%d %b %Y') %]</b></p>
           <p class="lead">[% feature.blurb | html %]</p>
 [% IF feature.examples -%]
           <h3>Example code</h3>
