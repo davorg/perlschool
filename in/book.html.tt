@@ -7,8 +7,8 @@
      US => 'com',
    };
 
-   IF links.site;
-     domain = links.site;
+   IF links.$site;
+     domain = links.$site;
    END;
 
 'https://amazon.' _ domain _ '/dp/' _ asin;
