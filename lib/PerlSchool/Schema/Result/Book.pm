@@ -137,6 +137,10 @@ sub json_ld_fields { [
     name => $_[0]->author,
     '@type' => 'Person',
   } } },
+  { image => sub {
+      'https://perlschool.com/images/' . $_[0]->image . '.webp'
+    }
+  },
   { datePublished => sub { $_[0]->pubdate->strftime('%Y-%m-%d') }},
   { publisher => sub { {
     name => 'Perl School Publishing',
