@@ -1,6 +1,8 @@
 [% MACRO amazon_link(site, asin) BLOCK;
    domain = site.lower;
    links = {
+     AU => 'com.au',
+     BR => 'com.br',
      JP => 'co.jp',
      MX => 'com.mx',
      UK => 'co.uk',
