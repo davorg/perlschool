@@ -1,3 +1,4 @@
+[% PROCESS util.tt -%]
       <div class="row">
         <div class="col-md-7">
 	  <h1 class="display-3">[% feature.title %]</h1>
@@ -9,11 +10,6 @@
           <a href="/books/[% feature.slug %]" class="btn btn-primary btn-lg">Read more...</a>
 	</div>
 	<div class="col-md-5">
-	  <p><picture>
-            <source srcset="/images/[% feature.image %].webp" type="image/webp">
-            <source srcset="/images/[% feature.image %].png" type="image/png">
-            <img src="/images/[% feature.image %].png" class="img-fluid"
-               alt="[% feature.title %]">
-          </picture></p>
+	  <p>[% an_image(feature.image, feature.title, 'img-fluid') -%]</p>
 	</div>
       </div>

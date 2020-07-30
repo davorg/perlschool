@@ -1,3 +1,4 @@
+[% PROCESS util.tt -%]
 [% MACRO amazon_link(site, asin) BLOCK;
    domain = site.lower;
    links = {
@@ -24,12 +25,7 @@
 [% END -%]
         </div>
 	<div class="col-md-6">
-	  <p><picture>
-            <source srcset="/images/[% feature.image %].webp" type="image/webp">
-            <source srcset="/images/[% feature.image %].png" type="image/png">
-            <img src="/images/[% feature.image %].png" class="img-fluid"
-               alt="[% feature.title %]">
-          </picture></p>
+	  <p>[% an_image(feature.image, feature.title, 'img-fluid') -%]
 	</div>
         <div class="col-md-6">
 	  <h2>By [% feature.author %]</h2>

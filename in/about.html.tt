@@ -1,3 +1,4 @@
+[% PROCESS util.tt -%]
       <div class="row">
         <div class="col-md-12">
 	  <h1 class="display-3">About Perl School</h1>
@@ -29,11 +30,7 @@
 
           <h1 class="display-3">About Dave Cross</h1>
 
-          <p><picture>
-             <source srcset="/images/dave.webp" type="image/webp">
-             <source srcset="/images/dave.png" type="image/png">
-             <img src="/images/dave.jpg" class="float" alt="Dave Cross">
-            </picture>
+          <p>[% an_image('dave', 'Dave Cross', 'float') -%]
             Dave Cross has been programming professionally since 1988 and
             using Perl since 1996. In that time he has used Perl as a glue
             language, for web development and as a general purpose
