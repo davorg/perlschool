@@ -81,7 +81,8 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
       <a class="navbar-brand" href="/"><picture>
-        <source srcset="/images/perlschool-logo.webp">
+        <source srcset="/images/perlschool-logo.webp" type="image/webp">
+        <source srcset="/images/perlschool-logo.png" type="image/png">
         <img src="/images/perlschool-logo.png" alt="Perl School Publishing">
       </picture></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,7 +127,8 @@
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <picture>
-            <source srcset="/images/[% book.image %].webp">
+            <source srcset="/images/[% book.image %].webp" type="image/webp">
+            <source srcset="/images/[% book.image %].png" type="image/png">
             <img class="card-img-top" src="/images/[% book.image %].png"
               alt="[% book.title %]">
           </picture>

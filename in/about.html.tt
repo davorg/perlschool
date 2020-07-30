@@ -30,7 +30,8 @@
           <h1 class="display-3">About Dave Cross</h1>
 
           <p><picture>
-             <source srcset="/images/dave.webp">
+             <source srcset="/images/dave.webp" type="image/webp">
+             <source srcset="/images/dave.png" type="image/png">
              <img src="/images/dave.jpg" class="float" alt="Dave Cross">
             </picture>
             Dave Cross has been programming professionally since 1988 and
