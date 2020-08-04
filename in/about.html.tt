@@ -1,7 +1,8 @@
 [% PROCESS util.tt -%]
       <div class="row">
         <div class="col-md-12">
-	  <h1 class="display-3">About Perl School</h1>
+          <h1>About Things</h1>
+	  <h2 class="display-3">About Perl School</h2>
           <p>The Perl School brand has its roots in a series of low-cost
             Perl training courses that Dave Cross ran in 2012. By running
             low-cost training at the weekend, he hoped to encourage more
@@ -28,7 +29,7 @@
             <a href="https://twitter.com/perl_school">@perl_school</a> on
             Twitter.</p>
 
-          <h1 class="display-3">About Dave Cross</h1>
+          <h2 class="display-3">About Dave Cross</h2>
 
           <p>[% an_image('dave', 'Dave Cross', 'float', 'jpg') -%]
             Dave Cross has been programming professionally since 1988 and
