@@ -30,7 +30,7 @@
 
           <h1 class="display-3">About Dave Cross</h1>
 
-          <p>[% an_image('dave', 'Dave Cross', 'float') -%]
+          <p>[% an_image('dave', 'Dave Cross', 'float', 'jpg') -%]
             Dave Cross has been programming professionally since 1988 and
             using Perl since 1996. In that time he has used Perl as a glue
             language, for web development and as a general purpose
