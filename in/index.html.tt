@@ -7,7 +7,7 @@
 [% END -%]
 	  <h2>By [% feature.author %]</h2>
           <p class="lead">[% feature.blurb | html %]</p>
-          <a href="/books/[% feature.slug %]" class="btn btn-primary btn-lg">Read more...</a>
+          <a href="/books/[% feature.slug %]/" class="btn btn-primary btn-lg">Read more...</a>
 	</div>
 	<div class="col-md-5">
 	  <p>[% an_image(feature.image, feature.title, 'img-fluid') -%]</p>

@@ -128,7 +128,7 @@
             <p class="card-text">[% book.blurb | truncate(50, '&hellip;') %]</p>
           </div>
           <div class="card-footer">
-            <a href="/books/[% book.slug %]" class="btn btn-primary">Read More...</a>
+            <a href="/books/[% book.slug %]/" class="btn btn-primary">Read More...</a>
           </div>
         </div>
       </div>
