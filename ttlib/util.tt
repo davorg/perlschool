@@ -1,0 +1,10 @@
+[% MACRO an_image(img, alt, class, ext) BLOCK -%]
+[% UNLESS ext;
+     ext = 'png';
+   END -%]
+<picture>
+  <source srcset="/images/[% img %].webp" type="image/webp">
+  <source srcset="/images/[% img %].[% ext %]" type="image/[% ext %]">
+  <img src="/images/[% img %].png"[% IF class %] class="[% class %]"[% END %] alt="[% alt %]">
+</picture>
+[% END -%]
