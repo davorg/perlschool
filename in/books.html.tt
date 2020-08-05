@@ -3,7 +3,7 @@
 	  <h1 class="display-3">List of books</h1>
           <ul>
 [% FOR book IN books.sort('title') -%]
-            <li><a href="/books/[% book.slug %]/">[% book.title %]</a></li>
+            <li><a href="/books/[% book.slug %]/"><b>[% book.title %]</b> - [% book.author %]</a></li>
 [% END -%]
           </ul>
         </div>
