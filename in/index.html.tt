@@ -1,11 +1,12 @@
 [% PROCESS util.tt -%]
       <div class="row">
         <div class="col-md-7">
-	  <h1 class="display-3">[% feature.title %]</h1>
+          <h1>Latest Release</h1>
+	  <h2 class="display-3">[% feature.title %]</h2>
 [% IF feature.subtitle -%]
-          <h2 class="display-4">[% feature.subtitle %]</h2>
+          <p class="display-4">[% feature.subtitle %]</p>
 [% END -%]
-	  <h2>By [% feature.author %]</h2>
+	  <p><b>By [% feature.author %]</b></p>
           <p class="lead">[% feature.blurb | html %]</p>
           <a href="/books/[% feature.slug %]/" class="btn btn-primary btn-lg">Read more...</a>
 	</div>
