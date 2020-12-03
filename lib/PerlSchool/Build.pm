@@ -8,8 +8,8 @@ use Template;
 use PerlSchool::Schema;
 
 has tt => (
-  isa => 'Template',
-  is  => 'ro',
+  isa        => 'Template',
+  is         => 'ro',
   lazy_build => 1,
 );
 
@@ -22,8 +22,8 @@ sub _build_tt {
 }
 
 has schema => (
-  isa => 'PerlSchool::Schema',
-  is => 'ro',
+  isa        => 'PerlSchool::Schema',
+  is         => 'ro',
   lazy_build => 1,
 );
 
@@ -32,16 +32,16 @@ sub _build_schema {
 }
 
 has canonical_url => (
-  isa => 'Str',
-  is => 'ro',
+  isa     => 'Str',
+  is      => 'ro',
   default => 'https://perlschool.com/',
 );
 
 has urls => (
-  isa => 'ArrayRef',
-  is => 'rw',
+  isa     => 'ArrayRef',
+  is      => 'rw',
   default => sub { [] },
-  traits => ['Array'],
+  traits  => ['Array'],
   handles => {
     all_urls => 'elements',
     add_url  => 'push',
@@ -49,35 +49,37 @@ has urls => (
 );
 
 has books => (
-  isa => 'ArrayRef',
-  is => 'rw',
+  isa        => 'ArrayRef',
+  is         => 'rw',
   lazy_build => 1,
-  traits => ['Array'],
-  handles => {
+  traits     => ['Array'],
+  handles    => {
     all_books => 'elements',
   },
 );
 
 sub _build_books {
-  return [ $_[0]->schema->resultset('Book')->search(
-    undef, {
-      order_by => { -desc => 'pubdate' },
-    },
-  ) ];
+  return [
+    $_[0]->schema->resultset('Book')->search(
+      undef, {
+        order_by => { -desc => 'pubdate' },
+      },
+    )
+  ];
 }
 
 has pages => (
-  isa => 'ArrayRef',
-  is => 'ro',
+  isa        => 'ArrayRef',
+  is         => 'ro',
   lazy_build => 1,
-  traits => ['Array'],
-  handles => {
+  traits     => ['Array'],
+  handles    => {
     all_pages => 'elements',
   },
 );
 
 sub _build_pages {
-  return [ qw( books about contact ) ];
+  return [qw( books about contact )];
 }
 
 sub run {
@@ -87,17 +89,17 @@ sub run {
 
   $self->make_page(
     'index.html.tt', {
-      feature => $books[0],
-      books   => [ @books[1 .. $#books] ],
+      feature   => $books[0],
+      books     => [ @books[ 1 .. $#books ] ],
       canonical => $self->canonical_url,
     },
     'index.html',
   );
 
-  for ($self->all_pages) {
+  for ( $self->all_pages ) {
     $self->make_page(
       "$_.html.tt", {
-        books => \@books,
+        books     => \@books,
         canonical => $self->canonical_url . "$_/",
       },
       "$_/index.html",
@@ -107,8 +109,8 @@ sub run {
   for (@books) {
     $self->make_page(
       'book.html.tt', {
-        feature => $_,
-        books   => \@books,
+        feature   => $_,
+        books     => \@books,
         canonical => $self->canonical_url . 'books/' . $_->slug . '/',
       },
       'books/' . $_->slug . '/index.html',
@@ -125,13 +127,13 @@ sub run {
 
 sub make_page {
   my $self = shift;
-  my ($template, $vars, $output) = @_;
+  my ( $template, $vars, $output ) = @_;
 
-  $self->tt->process($template, $vars, $output)
+  $self->tt->process( $template, $vars, $output )
     or die $self->tt->error;
 
-  if (exists $vars->{canonical}) {
-    $self->add_url($vars->{canonical});
+  if ( exists $vars->{canonical} ) {
+    $self->add_url( $vars->{canonical} );
   }
 }
 
