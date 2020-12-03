@@ -1,0 +1,35 @@
+name: Generate web page
+
+on:
+  push:
+    branches: '*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install modules
+      run: |
+          sudo cpanm --installdeps --notest .
+
+    - name: Create pages
+      run: |
+        mkdir -p docs
+        ./build
+
+    - name: Commit new page
+      if: github.repository == 'davorg/perlschool'
+      run: |
+        GIT_STATUS=$(git status --porcelain)
+        echo $GIT_STATUS
+        git config --global user.name 'Dave Cross'
+        git config --global user.email 'dave@dave.org.uk'
+        git add docs/
+        if [ "$GIT_STATUS" != "" ]; then git commit -m "Automated Web page generation"; fi
+        if [ "$GIT_STATUS" != "" ]; then git push; fi
+
