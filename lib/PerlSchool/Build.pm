@@ -5,6 +5,8 @@ use Moose;
 use feature 'say';
 
 use Template;
+use Carp;
+
 use PerlSchool::Schema;
 
 has tt => (
@@ -123,6 +125,8 @@ sub run {
     },
     'sitemap.xml',
   );
+
+  return;
 }
 
 sub make_page {
@@ -130,11 +134,13 @@ sub make_page {
   my ( $template, $vars, $output ) = @_;
 
   $self->tt->process( $template, $vars, $output )
-    or die $self->tt->error;
+    or croak $self->tt->error;
 
   if ( exists $vars->{canonical} ) {
     $self->add_url( $vars->{canonical} );
   }
+
+  return;
 }
 
 1;
