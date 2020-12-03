@@ -118,7 +118,7 @@ sub make_page {
     or die $self->tt->error;
 
   if (exists $vars->{canonical}) {
-   push @{$self->urls}, $vars->{canonical};
+    push @{$self->urls}, $vars->{canonical};
   }
 }
 
