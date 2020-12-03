@@ -41,12 +41,21 @@ has urls => (
   isa => 'ArrayRef',
   is => 'rw',
   default => sub { [] },
+  traits => ['Array'],
+  handles => {
+    all_urls => 'elements',
+    add_url  => 'push',
+  },
 );
 
 has books => (
   isa => 'ArrayRef',
   is => 'rw',
   lazy_build => 1,
+  traits => ['Array'],
+  handles => {
+    all_books => 'elements',
+  },
 );
 
 sub _build_books {
@@ -61,6 +70,10 @@ has pages => (
   isa => 'ArrayRef',
   is => 'ro',
   lazy_build => 1,
+  traits => ['Array'],
+  handles => {
+    all_pages => 'elements',
+  },
 );
 
 sub _build_pages {
@@ -70,7 +83,7 @@ sub _build_pages {
 sub run {
   my $self = shift;
 
-  my @books = @{ $self->books };
+  my @books = $self->all_books;
 
   $self->make_page(
     'index.html.tt', {
@@ -81,7 +94,7 @@ sub run {
     'index.html',
   );
 
-  for (@{ $self->pages }) {
+  for ($self->all_pages) {
     $self->make_page(
       "$_.html.tt", {
         books => \@books,
@@ -118,7 +131,7 @@ sub make_page {
     or die $self->tt->error;
 
   if (exists $vars->{canonical}) {
-    push @{$self->urls}, $vars->{canonical};
+    $self->add_url($vars->{canonical});
   }
 }
 
