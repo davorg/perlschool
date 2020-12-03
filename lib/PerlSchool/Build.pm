@@ -72,48 +72,54 @@ sub run {
 
   my @books = @{ $self->books };
 
-  $self->tt->process(
+  $self->make_page(
     'index.html.tt', {
       feature => $books[0],
       books   => [ @books[1 .. $#books] ],
       canonical => $self->canonical_url,
     },
     'index.html',
-  ) or die $self->tt->error;
-
-  push @{$self->urls}, $self->canonical_url;
+  );
 
   for (@{ $self->pages }) {
-    $self->tt->process(
+    $self->make_page(
       "$_.html.tt", {
         books => \@books,
         canonical => $self->canonical_url . "$_/",
       },
       "$_/index.html",
-    ) or die $self->tt->error;
-
-    push @{$self->urls}, $self->canonical_url . "$_/";
+    );
   }
 
   for (@books) {
-    $self->tt->process(
+    $self->make_page(
       'book.html.tt', {
         feature => $_,
         books   => \@books,
         canonical => $self->canonical_url . 'books/' . $_->slug . '/',
       },
       'books/' . $_->slug . '/index.html',
-    ) or die $self->tt->error;
-
-    push @{$self->urls}, $self->canonical_url . 'books/' . $_->slug . '/';
+    );
   }
 
-  $self->tt->process(
+  $self->make_page(
     'sitemap.xml.tt', {
       urls => $self->urls,
     },
     'sitemap.xml',
-  ) or die $self->tt->error;
+  );
+}
+
+sub make_page {
+  my $self = shift;
+  my ($template, $vars, $output) = @_;
+
+  $self->tt->process($template, $vars, $output)
+    or die $self->tt->error;
+
+  if (exists $vars->{canonical}) {
+   push @{$self->urls}, $vars->{canonical};
+  }
 }
 
 1;
