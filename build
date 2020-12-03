@@ -2,65 +2,8 @@
 
 use strict;
 use warnings;
-use feature 'say';
 
-use Template;
-use PerlSchool::Schema;
+use PerlSchool::Build;
 
-my $tt  = Template->new(
-  INCLUDE_PATH => [qw(in ttlib)],
-  OUTPUT_PATH  => 'docs',
-  WRAPPER      => 'page.tt',
-);
-my $sch = PerlSchool::Schema->get_schema;
-my $rs  = $sch->resultset('Book');
+PerlSchool::Build->new->run;
 
-my @books = $rs->search(undef, {
-  order_by => { -desc => 'pubdate' }
-} );
-
-my $canonical_url = 'https://perlschool.com/';
-my @urls;
-
-$tt->process(
-  'index.html.tt', {
-    feature => $books[0],
-    books   => [ @books[1 .. $#books] ],
-    canonical => $canonical_url,
-  },
-  'index.html',
-) or die $tt->error;
-
-push @urls, $canonical_url;
-
-for (qw[books about contact]) {
-  $tt->process(
-    "$_.html.tt", {
-      books => \@books,
-      canonical => "$canonical_url$_/",
-    },
-    "$_/index.html",
-  ) or die $tt->error;
-
-  push @urls, "$canonical_url$_/";
-}
-
-for (@books) {
-  $tt->process(
-    'book.html.tt', {
-      feature => $_,
-      books   => \@books,
-      canonical => $canonical_url . 'books/' . $_->slug . '/',
-    },
-    'books/' . $_->slug . '/index.html',
-  ) or die $tt->error;
-
-  push @urls, $canonical_url . 'books/' . $_->slug . '/';
-}
-
-$tt->process(
-  'sitemap.xml.tt', {
-    urls => \@urls,
-  },
-  'sitemap.xml',
-) or die $tt->error;
