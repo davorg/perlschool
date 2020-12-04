@@ -6,7 +6,7 @@
 [% IF feature.subtitle -%]
           <p class="display-4">[% feature.subtitle %]</p>
 [% END -%]
-	  <p><b>By [% feature.author %]</b></p>
+	  <p><b>By [% feature.author.name %]</b></p>
           <p class="lead">[% feature.blurb | html %]</p>
           <a href="/books/[% feature.slug %]/" class="btn btn-primary btn-lg">Read more...</a>
 	</div>

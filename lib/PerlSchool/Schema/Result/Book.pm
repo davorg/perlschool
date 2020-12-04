@@ -35,6 +35,12 @@ __PACKAGE__->table("book");
 
 =head1 ACCESSORS
 
+=head2 id
+
+  data_type: 'integer'
+  is_auto_increment: 1
+  is_nullable: 0
+
 =head2 title
 
   data_type: 'varchar'
@@ -46,12 +52,6 @@ __PACKAGE__->table("book");
   data_type: 'varchar'
   is_nullable: 1
   size: 200
-
-=head2 author
-
-  data_type: 'varchar'
-  is_nullable: 0
-  size: 50
 
 =head2 slug
 
@@ -94,15 +94,21 @@ __PACKAGE__->table("book");
   is_nullable: 1
   size: 30
 
+=head2 author_id
+
+  data_type: 'integer'
+  is_foreign_key: 1
+  is_nullable: 1
+
 =cut
 
 __PACKAGE__->add_columns(
+  "id",
+  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "title",
   { data_type => "varchar", is_nullable => 0, size => 100 },
   "subtitle",
   { data_type => "varchar", is_nullable => 1, size => 200 },
-  "author",
-  { data_type => "varchar", is_nullable => 0, size => 50 },
   "slug",
   { data_type => "varchar", is_nullable => 0, size => 100 },
   "pubdate",
@@ -117,11 +123,47 @@ __PACKAGE__->add_columns(
   { data_type => "varchar", is_nullable => 1, size => 50 },
   "examples",
   { data_type => "varchar", is_nullable => 1, size => 30 },
+  "author_id",
+  { data_type => "integer", is_foreign_key => 1, is_nullable => 1 },
+);
+
+=head1 PRIMARY KEY
+
+=over 4
+
+=item * L</id>
+
+=back
+
+=cut
+
+__PACKAGE__->set_primary_key("id");
+
+=head1 RELATIONS
+
+=head2 author
+
+Type: belongs_to
+
+Related object: L<PerlSchool::Schema::Result::Author>
+
+=cut
+
+__PACKAGE__->belongs_to(
+  "author",
+  "PerlSchool::Schema::Result::Author",
+  { id => "author_id" },
+  {
+    is_deferrable => 0,
+    join_type     => "LEFT",
+    on_delete     => "NO ACTION",
+    on_update     => "NO ACTION",
+  },
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-06-25 16:41:49
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MlBwavmULSP5+s2q2Lg+Vg
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-12-04 14:19:22
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qMSURO8GrZ8ThZ5GiXmv2g
 
 use Moo;
 with 'MooX::Role::JSON_LD';
@@ -134,7 +176,7 @@ sub json_ld_fields { [
   },
   { bookFormat => sub { 'EBook' } },
   { author => sub { {
-    name => $_[0]->author,
+    name => $_[0]->author->name,
     '@type' => 'Person',
   } } },
   { image => sub {
