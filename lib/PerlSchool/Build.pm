@@ -80,6 +80,26 @@ has pages => (
   },
 );
 
+has authors => (
+  isa        => 'ArrayRef',
+  is         => 'ro',
+  lazy_build => 1,
+  traits     => ['Array'],
+  handles    => {
+    all_authors => 'elements',
+  },
+);
+
+sub _build_authors {
+  return [
+    $_[0]->schema->resultset('Author')->search(
+      undef, {
+        order_by => { -asc => 'name' },
+      },
+    )
+  ];
+}
+
 sub _build_pages {
   return [qw( books about contact )];
 }
@@ -89,6 +109,7 @@ sub run {
 
   $self->make_index_page;
   $self->make_book_pages;
+  $self->make_authors_page;
   $self->make_other_pages;
   $self->make_sitemap;
 
@@ -129,6 +150,19 @@ sub make_book_pages {
   }
 
   return;
+}
+
+sub make_authors_page {
+  my $self = shift;
+
+  $self->make_page(
+    'authors.html.tt', {
+      authors   => $self->authors,
+      books     => $self->books,
+      canonical => $self->canonical_url . 'authors/',
+    },
+    'authors/index.html',
+  );
 }
 
 sub make_other_pages {
