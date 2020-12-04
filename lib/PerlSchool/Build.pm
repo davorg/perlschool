@@ -87,6 +87,17 @@ sub _build_pages {
 sub run {
   my $self = shift;
 
+  $self->make_index_page;
+  $self->make_book_pages;
+  $self->make_other_pages;
+  $self->make_sitemap;
+
+  return;
+}
+
+sub make_index_page {
+  my $self = shift;
+
   my @books = $self->all_books;
 
   $self->make_page(
@@ -98,15 +109,13 @@ sub run {
     'index.html',
   );
 
-  for ( $self->all_pages ) {
-    $self->make_page(
-      "$_.html.tt", {
-        books     => \@books,
-        canonical => $self->canonical_url . "$_/",
-      },
-      "$_/index.html",
-    );
-  }
+  return;
+}
+
+sub make_book_pages {
+  my $self = shift;
+
+  my @books = $self->all_books;
 
   for (@books) {
     $self->make_page(
@@ -118,6 +127,28 @@ sub run {
       'books/' . $_->slug . '/index.html',
     );
   }
+
+  return;
+}
+
+sub make_other_pages {
+  my $self = shift;
+
+  for ( $self->all_pages ) {
+    $self->make_page(
+      "$_.html.tt", {
+        books     => $self->books,
+        canonical => $self->canonical_url . "$_/",
+      },
+      "$_/index.html",
+    );
+  }
+
+  return;
+}
+
+sub make_sitemap {
+  my $self = shift;
 
   $self->make_page(
     'sitemap.xml.tt', {
