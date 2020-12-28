@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use PerlSchool::Schema;
+
+my $sch = PerlSchool::Schema->get_schema;
+
+my $rs = $sch->resultset('AmazonSite');
+
+$rs->delete;
+
+my @cols = qw[code name domain currency sort_order];
+
+while (<DATA>) {
+  chomp;
+  my %row;
+  @row{@cols} = split /,/;
+
+  $rs->create(\%row);
+}
+
+__DATA__
+AU,Australia,com.au,AUD,1
+BR,Brazil,com.br,,2
+CA,Canada,ca,CAD,3
+DE,Germany,de,EUR,4
+ES,Spain,es,EUR,5
+FR,France,fr,EUR,6
+IN,India,in,INR,7
+IT,Italy,it,EUR,8
+JP,Japan,co.jp,BRL,9
+MX,Mexico,com.mx,MXN,10
+NL,Netherlands,nl,EUR,11
+UK,UK,co.uk,GBP,12
+US,USA,com,USD,13

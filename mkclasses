@@ -1,0 +1,5 @@
+#!/bin/bash
+
+dbicdump -o dump_directory=./lib \
+  -o components='["InflateColumn::DateTime"]' \
+  PerlSchool::Schema dbi:SQLite:./perlschool.db

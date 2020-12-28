@@ -1,22 +1,4 @@
 [% PROCESS util.tt -%]
-[% MACRO amazon_link(site, asin) BLOCK;
-   domain = site.lower;
-   links = {
-     AU => 'com.au',
-     BR => 'com.br',
-     JP => 'co.jp',
-     MX => 'com.mx',
-     UK => 'co.uk',
-     US => 'com',
-   };
-
-   IF links.$site;
-     domain = links.$site;
-   END;
-
-'https://amazon.' _ domain _ '/dp/' _ asin;
-   
-   END -%]
       <div class="row">
         <div class="col-md-12">
 	  <h1 class="display-3">[% feature.title %]</h1>
@@ -43,8 +25,8 @@
 [% END -%]
 [% IF feature.amazon_isin -%]
           <p>Buy from Amazon<br>
-[%   FOR site IN ['AU', 'BR', 'CA', 'DE', 'ES', 'FR', 'IN', 'IT', 'JP', 'MX', 'NL', 'UK', 'US' ] -%]
-          <a href="[% amazon_link(site, feature.amazon_isin) %]">[% site %]</a> 
+[%   FOR site IN amazon_sites -%]
+          <a href="[% site.uri_for_asin(feature.amazon_isin) %]">[% site.code %]</a> 
 [%   END -%]
           </p>
 [% END -%]

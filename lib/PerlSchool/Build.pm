@@ -100,6 +100,26 @@ sub _build_authors {
   ];
 }
 
+has amazon_sites => (
+  isa        => 'ArrayRef',
+  is         => 'ro',
+  lazy_build => 1,
+  traits     => ['Array'],
+  handles    => {
+    all_amazon_sites => 'elements',
+  },
+);
+
+sub _build_amazon_sites {
+  return [
+    $_[0]->schema->resultset('AmazonSite')->search(
+      undef, {
+        order_by => { -asc => 'sort_order' },
+      },
+    ),
+  ];
+}
+
 sub _build_pages {
   return [qw( books about contact )];
 }
@@ -144,6 +164,7 @@ sub make_book_pages {
         feature   => $_,
         books     => \@books,
         canonical => $self->canonical_url . 'books/' . $_->slug . '/',
+        amazon_sites => $self->amazon_sites,
       },
       'books/' . $_->slug . '/index.html',
     );
