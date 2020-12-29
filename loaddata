@@ -10,13 +10,13 @@ my $sch = PerlSchool::Schema->get_schema;
 my $rs  = $sch->resultset('Author');
 
 my @cols = qw[title author slug subtitle amazon_isin leanpub_slug
-              blurb examples pubdate];
+              blurb examples pubdate is_perlschool_book];
 
 while (<>) {
   chomp;
   my %book;
 
-  @book{@cols} = map { $_ || undef } split /\|/;
+  @book{@cols} = map { $_ // undef } split /\|/;
   $book{image} = "$book{slug}";
 
   my $author = $rs->find({ name => $book{author}});

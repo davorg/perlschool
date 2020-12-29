@@ -1,10 +1,16 @@
       <div class="row">
         <div class="col-md-12">
 	  <h1 class="display-3">List of authors</h1>
-[% FOR author IN authors -%]
+[% FOR author IN authors;
+     author_books = [];
+     FOR book IN author.books.sort('title');
+       NEXT UNLESS book.is_perlschool_book;
+       author_books.push(book);
+     END;
+     NEXT UNLESS author_books.size -%]
           <h2>[% author.name %]</h2>
           <ul>
-[%   FOR book IN author.books.sort('title') -%]
+[%   FOR book IN author_books -%] 
             <li><a href="/books/[% book.slug %]/"><b>[% book.title %]</b></a></li>
 [%   END -%]
           </ul>

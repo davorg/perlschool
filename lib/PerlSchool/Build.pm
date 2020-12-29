@@ -62,8 +62,9 @@ has books => (
 
 sub _build_books {
   return [
-    $_[0]->schema->resultset('Book')->search(
-      undef, {
+    $_[0]->schema->resultset('Book')->search({
+        is_perlschool_book => 1,
+      }, {
         order_by => { -desc => 'pubdate' },
       },
     )
