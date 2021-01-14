@@ -131,7 +131,7 @@
         <div class="card h-100">[% an_image(book.image, book.title, 'card-img-top') -%]
           <div class="card-body">
             <h3 class="card-title">[% book.title %]</h3>
-            <p class="card-text">[% book.blurb | truncate(50, '&hellip;') %]</p>
+            <p class="card-text">[% book.blurb | truncate(150, '&hellip;') %]</p>
           </div>
           <div class="card-footer">
             <a href="/books/[% book.slug %]/" class="btn btn-primary">Read More...</a>
