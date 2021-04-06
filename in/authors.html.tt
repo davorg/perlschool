@@ -11,7 +11,7 @@
           <h2>[% author.name %]</h2>
           <ul>
 [%   FOR book IN author_books -%] 
-            <li><a href="/books/[% book.slug %]/"><b>[% book.title %]</b></a></li>
+            <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b></a></li>
 [%   END -%]
           </ul>
 [% END -%]

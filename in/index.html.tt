@@ -2,9 +2,9 @@
       <div class="row">
         <div class="col-md-7">
           <h1>Latest Release</h1>
-	  <h2 class="display-3">[% feature.title %]</h2>
+	  <h2 class="display-3">[% feature.title | html %]</h2>
 [% IF feature.subtitle -%]
-          <p class="display-4">[% feature.subtitle %]</p>
+          <p class="display-4">[% feature.subtitle | html %]</p>
 [% END -%]
 	  <p><b>By [% feature.author.name %]</b></p>
           <p class="lead">[% feature.blurb %]</p>

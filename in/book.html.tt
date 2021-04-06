@@ -1,9 +1,9 @@
 [% PROCESS util.tt -%]
       <div class="row">
         <div class="col-md-12">
-	  <h1 class="display-3">[% feature.title %]</h1>
+	  <h1 class="display-3">[% feature.title | html %]</h1>
 [% IF feature.subtitle -%]
-          <h2 class="display-4">[% feature.subtitle %]</h2>
+          <h2 class="display-4">[% feature.subtitle | html %]</h2>
 [% END -%]
         </div>
 	<div class="col-md-6">
