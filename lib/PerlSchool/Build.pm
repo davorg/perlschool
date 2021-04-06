@@ -95,7 +95,7 @@ sub _build_authors {
   return [
     $_[0]->schema->resultset('Author')->search(
       undef, {
-        order_by => { -asc => 'name' },
+        order_by => { -asc => 'sortname' },
       },
     )
   ];

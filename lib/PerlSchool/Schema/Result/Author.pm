@@ -53,6 +53,12 @@ __PACKAGE__->table("author");
   is_nullable: 1
   size: 1000
 
+=head2 sortname
+
+  data_type: 'varchar'
+  is_nullable: 1
+  size: 50
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -62,6 +68,8 @@ __PACKAGE__->add_columns(
   { data_type => "varchar", is_nullable => 1, size => 50 },
   "bio",
   { data_type => "varchar", is_nullable => 1, size => 1000 },
+  "sortname",
+  { data_type => "varchar", is_nullable => 1, size => 50 },
 );
 
 =head1 PRIMARY KEY
@@ -94,8 +102,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-12-04 14:19:22
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:DWxcupYITgCgpcfl6sNxYg
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-04-06 10:50:44
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:XrCL7rzJUrOm9+SxIr/CMQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

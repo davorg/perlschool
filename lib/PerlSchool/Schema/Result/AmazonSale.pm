@@ -58,9 +58,28 @@ __PACKAGE__->table("amazon_sales");
   data_type: 'int'
   is_nullable: 0
 
-=head2 sales
+=head2 ebook_units
 
   data_type: 'int'
+  default_value: 0
+  is_nullable: 0
+
+=head2 paperback_units
+
+  data_type: 'int'
+  default_value: 0
+  is_nullable: 0
+
+=head2 koll_borrows
+
+  data_type: 'int'
+  default_value: 0
+  is_nullable: 0
+
+=head2 kenp_reads
+
+  data_type: 'int'
+  default_value: 0
   is_nullable: 0
 
 =cut
@@ -74,8 +93,14 @@ __PACKAGE__->add_columns(
   { data_type => "int", is_nullable => 0 },
   "month",
   { data_type => "int", is_nullable => 0 },
-  "sales",
-  { data_type => "int", is_nullable => 0 },
+  "ebook_units",
+  { data_type => "int", default_value => 0, is_nullable => 0 },
+  "paperback_units",
+  { data_type => "int", default_value => 0, is_nullable => 0 },
+  "koll_borrows",
+  { data_type => "int", default_value => 0, is_nullable => 0 },
+  "kenp_reads",
+  { data_type => "int", default_value => 0, is_nullable => 0 },
 );
 
 =head1 RELATIONS
@@ -111,8 +136,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-02-06 00:01:19
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:5wnmHijAwoio97YqSD1F4A
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-04-06 10:50:44
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Fz804EIaLW9fN4Ti6497Vw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
