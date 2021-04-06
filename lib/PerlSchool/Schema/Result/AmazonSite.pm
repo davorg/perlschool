@@ -79,9 +79,26 @@ __PACKAGE__->add_columns(
   { data_type => "int", is_nullable => 1 },
 );
 
+=head1 RELATIONS
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-12-28 13:56:13
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:zV3LEV396q9EppmvNcfLOQ
+=head2 amazon_sales
+
+Type: has_many
+
+Related object: L<PerlSchool::Schema::Result::AmazonSale>
+
+=cut
+
+__PACKAGE__->has_many(
+  "amazon_sales",
+  "PerlSchool::Schema::Result::AmazonSale",
+  { "foreign.amazon_site_code" => "self.code" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-02-06 00:01:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:dv+pSM3W0qY0xorfvibLTA
 
 sub uri_for_asin {
   my $self = shift;

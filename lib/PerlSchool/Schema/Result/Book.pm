@@ -149,6 +149,21 @@ __PACKAGE__->set_primary_key("id");
 
 =head1 RELATIONS
 
+=head2 amazon_sales
+
+Type: has_many
+
+Related object: L<PerlSchool::Schema::Result::AmazonSale>
+
+=cut
+
+__PACKAGE__->has_many(
+  "amazon_sales",
+  "PerlSchool::Schema::Result::AmazonSale",
+  { "foreign.book_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
 =head2 author
 
 Type: belongs_to
@@ -170,8 +185,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-12-29 10:51:36
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:2QfOYEuYRdQBIvX/dwSkvQ
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-02-06 00:01:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:b2mmOd/UU6nUq633JUZSxQ
 
 use Moo;
 with 'MooX::Role::JSON_LD';
