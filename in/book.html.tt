@@ -26,7 +26,7 @@
 [% IF feature.amazon_isin -%]
           <p>Buy from Amazon<br>
 [%   FOR site IN amazon_sites -%]
-          <a href="[% site.uri_for_asin(feature.amazon_isin) %]">[% site.code %]</a> 
+          <a href="[% site.uri_for_asin(feature.amazon_isin) %]">[% site.code %]</a>[% UNLESS loop.last %] / [% END %]
 [%   END -%]
           </p>
 [% END -%]
