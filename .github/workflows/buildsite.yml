@@ -2,7 +2,7 @@ name: Generate web page
 
 on:
   push:
-    branches: '*'
+    branches: 'master'
   workflow_dispatch:
 
 jobs:
