@@ -1,3 +1,3 @@
 # perlschool.com
 
-The Perl School web site.
+The [Perl School](https://perlschool.com/) web site.
