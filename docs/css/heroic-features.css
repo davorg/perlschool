@@ -18,3 +18,10 @@ img.float {
   padding-bottom: 15px;
   filter: drop-shadow(8px 8px 8px #222);
 }
+
+.col-10 {
+}
+
+.col-2 {
+  padding-top: 28px;
+}

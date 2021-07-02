@@ -112,14 +112,22 @@
   <!-- Page Content -->
   <div class="container">
 
-    <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
+    <div class="row">
+      <div class="col-10">
+        <!-- Jumbotron Header -->
+        <div class="jumbotron my-4">
+
 [% content -%]
 
-    <!-- Go to washboard to customize your tools -->
-    <div class="addthis_native_toolbox"></div>
+          <!-- Go to dashboard to customize your tools -->
+          <p><div class="addthis_native_toolbox"></div></p>
 
-    </header>
+        </div>
+      </div>
+      <div class="col-2">
+        [% INCLUDE twitter.tt %]
+      </div>
+    </div>
 
     <!-- Page Features -->
     <div class="row text-center">
