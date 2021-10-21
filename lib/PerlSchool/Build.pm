@@ -64,6 +64,7 @@ sub _build_books {
   return [
     $_[0]->schema->resultset('Book')->search({
         is_perlschool_book => 1,
+        is_live => 1,
       }, {
         order_by => { -desc => 'pubdate' },
       },

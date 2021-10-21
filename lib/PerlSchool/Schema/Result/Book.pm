@@ -106,6 +106,12 @@ __PACKAGE__->table("book");
   default_value: 1
   is_nullable: 0
 
+=head2 is_live
+
+  data_type: 'boolean'
+  default_value: 1
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -132,6 +138,8 @@ __PACKAGE__->add_columns(
   "author_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 1 },
   "is_perlschool_book",
+  { data_type => "boolean", default_value => 1, is_nullable => 0 },
+  "is_live",
   { data_type => "boolean", default_value => 1, is_nullable => 0 },
 );
 
@@ -185,8 +193,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-02-06 00:01:19
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:b2mmOd/UU6nUq633JUZSxQ
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-10-21 07:56:52
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:t9wIVbRwK6+HMHougSl/+g
 
 use Moo;
 with 'MooX::Role::JSON_LD';

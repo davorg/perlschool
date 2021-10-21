@@ -9,10 +9,6 @@
       <priority>1</priority>
    </url>
    <url>
-      <loc>https://perlschool.com/books/preparing-for-perl-7/</loc>
-      <priority>1</priority>
-   </url>
-   <url>
       <loc>https://perlschool.com/books/the-best-of-perl-hacks/</loc>
       <priority>1</priority>
    </url>
