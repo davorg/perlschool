@@ -10,3 +10,4 @@ use PerlSchool::Build;
 
 PerlSchool::Build->new->run;
 
+exit;
