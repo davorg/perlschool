@@ -32,8 +32,8 @@ jobs:
       run: |
         GIT_STATUS=$(git status --porcelain)
         echo $GIT_STATUS
-        git config --global user.name 'Dave Cross'
-        git config --global user.email 'dave@dave.org.uk'
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
         git add docs/
         if [ "$GIT_STATUS" != "" ]; then git commit -m "Automated Web page generation"; fi
         if [ "$GIT_STATUS" != "" ]; then git push; fi
