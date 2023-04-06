@@ -3,7 +3,8 @@
 	  <h1 class="display-3">List of books</h1>
           <ul>
 [% FOR book IN books.sort('title') -%]
-            <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b> - [% book.author.name %]</a></li>
+            <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b> - [% book.author.name %]</a>
+              <br>[% book.blurb.substr(0, 40) %]...</li>
 [% END -%]
           </ul>
         </div>
