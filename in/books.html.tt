@@ -4,7 +4,7 @@
           <ul>
 [% FOR book IN books.sort('title') -%]
             <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b> - [% book.author.name %]</a>
-              <br>[% book.blurb.substr(0, 40) %]...</li>
+              <br>[% book.blurb %]...</li>
 [% END -%]
           </ul>
         </div>
