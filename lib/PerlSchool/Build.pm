@@ -5,6 +5,7 @@ use Moose;
 use feature 'say';
 
 use Template;
+use Time::Piece;
 use Carp;
 
 use PerlSchool::Schema;
@@ -20,6 +21,9 @@ sub _build_tt {
     INCLUDE_PATH => [qw(in ttlib)],
     OUTPUT_PATH  => 'docs',
     WRAPPER      => 'page.tt',
+    VARIABLES    => {
+      buildyear  => localtime->year,
+    },
   );
 }
 
