@@ -1,0 +1,59 @@
+[% PROCESS util.tt -%]
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-3">Write for us</h1>
+          <p>Share you Perl expertise with our community.</p>
+
+          <p>At Perl School, we're always on the lookout for skilled and
+            passionate Perl programmers who are eager to share their knowledge
+            with our growing community of readers. If you have a
+            unique perspective, valuable insights, or practical techniques
+            that can help others excel in Perl programming, we'd love to
+            hear from you!</p>
+
+          <h2>Why Write for Perl School?</h2>
+
+          <ul>
+            <li>Reach a dedicated audience of Perl enthusiasts, programmers
+              and developers</li>
+            <li>Collaborate with other esteemed Perl authors and experts</li>
+            <li>Enhance your professional profile and reputation within the
+              Perl community</li>
+          </ul>
+
+          <h2>What We're Looking For:</h2>
+
+          <ul>
+            <li>Well-researched and engaging content that covers a wide range
+              of Perl topics, from beginner tutorials to advanced techniques
+              and best practices</li>
+            <li>Real-world examples and case studies that demonstrate the
+              practical applications of Perl programming</li>
+            <li>Insightful articles on the latest trends, updates, and news in
+              the Perl ecosystem</li>
+          </ul>
+
+          <h2>Submission Guidelines:</h2>
+
+          <ul>
+            <li>Submit a brief proposal outlining your article or ebook idea,
+              including the topic, target audience, and key takeaways</li>
+            <li>Include a short author bio, highlighting your relevant
+              experience and expertise in Perl programming</li>
+            <li>Provide links to any previously published work, if
+              available</li>
+          </ul>
+
+          <p>Our editorial team will review your submission and respond within
+            2-3 weeks. If your proposal is accepted, we'll work closely with
+            you to develop the content and ensure it aligns with our quality
+            standards and brand values.</p>
+
+          <p>We look forward to welcoming you to our team of talented authors
+            and sharing your Perl expertise with our community of readers.
+            Submit your proposal today and join us in our mission to empower
+            Perl programmers worldwide.</p>
+
+          <p>Send your proposals to <a href="mailto:hello@perlschool.com">hello@perlschool.com</a>.</p>
+        </div>
+      </div>

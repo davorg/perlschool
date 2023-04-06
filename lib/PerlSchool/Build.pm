@@ -127,7 +127,7 @@ sub _build_amazon_sites {
 }
 
 sub _build_pages {
-  return [qw( books about contact )];
+  return [qw( books about contact write )];
 }
 
 sub run {
