@@ -48,4 +48,8 @@
       <loc>https://perlschool.com/contact/</loc>
       <priority>1</priority>
    </url>
+   <url>
+      <loc>https://perlschool.com/write/</loc>
+      <priority>1</priority>
+   </url>
 </urlset>
