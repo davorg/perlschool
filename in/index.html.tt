@@ -13,6 +13,10 @@
             experienced programmer looking to expand your knowledge, Perl
             School offers invaluable resources to help you excel. Join our
             community and unlock your true potential with Perl School today!</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
           <h1>Latest Release</h1>
 	  <h2 class="display-3">[% feature.title | html %]</h2>
 [% IF feature.subtitle -%]
