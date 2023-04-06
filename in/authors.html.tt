@@ -14,6 +14,9 @@
      END;
      NEXT UNLESS author_books.size -%]
           <h2>[% author.name %]</h2>
+[% IF author.bio -%]
+          <p>[% author.bio %]</>
+[% END -%]
           <ul>
 [%   FOR book IN author_books -%] 
             <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b></a></li>
