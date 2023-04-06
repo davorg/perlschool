@@ -18,7 +18,8 @@
           <p>[% author.bio %]</>
 [% END -%]
           <ul>
-[%   FOR book IN author_books -%] 
+[%   FOR book IN author_books;
+       NEXT UNLESS book.is_live -%]
             <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b></a></li>
 [%   END -%]
           </ul>
