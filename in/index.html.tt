@@ -27,6 +27,10 @@
           <p class="display-4">[% feature.subtitle | html %]</p>
 [% END -%]
 	  <p><b>By [% feature.author.name %]</b></p>
+          <p><b>Published: [% feature.pubdate.strftime('%d %b %Y') %]</b>
+[% IF feature.upddate -%]
+            <br><b>Latest update: [% feature.upddate.strftime('%d %b %Y') %]</b></p>
+[% END -%]
           <p class="lead">[% feature.blurb %]</p>
           <a href="/books/[% feature.slug %]/" class="btn btn-primary btn-lg">Read more...</a>
 	</div>
