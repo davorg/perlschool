@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature 'say';
+use lib 'lib';
+use PerlSchool::Schema;
+
+my $asin = shift or die "Give me an ASIN\n";
+
+my $sch = PerlSchool::Schema->get_schema;
+
+my %links;
+
+for ($sch->resultset('AmazonSite')->all) {
+  $links{$_->code} = $_->uri_for_asin($asin);
+}
+
+say join ' / ', map { "[$_]($links{$_})" } sort keys %links;

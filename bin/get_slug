@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature 'say';
+
+use PerlSchool::Schema;
+
+my $sch = PerlSchool::Schema->get_schema;
+my $rs  = $sch->resultset('Book');
+
+my $fragment;
+my @books;
+
+if (@ARGV) {
+  $fragment = shift;
+  @books = $rs->search({
+    title => { -like => '%' . $fragment . '%' },
+  });
+} else {
+  @books = $rs->all;
+}
+
+unless (@books) {
+  die "No books found matching '$fragment'\n";
+  exit 1;
+}
+
+say $_->title, " [", $_->slug, ']' for @books;

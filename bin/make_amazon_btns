@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use feature 'say';
+
+use PerlSchool::Schema;
+
+my $asin = shift || 'B0C2D875YG';
+
+my $sch = PerlSchool::Schema->get_schema;
+
+for my $ama ($sch->resultset('AmazonSite')->all) {
+  my $domain = $ama->domain;
+  my $code   = $ama->code;
+  say qq[<a target="_blank"
+         href="https://www.amazon.$domain/dp/$asin?linkCode=sl1&tag=davblog-21"
+         class="btn btn-primary">$code</a>];
+}

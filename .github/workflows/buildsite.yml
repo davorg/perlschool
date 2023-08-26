@@ -25,7 +25,7 @@ jobs:
     - name: Create pages
       run: |
         mkdir -p docs
-        PERL5LIB=lib ./build
+        PERL5LIB=lib bin/build
 
     - name: Commit new page
       if: github.repository == 'davorg/perlschool'
