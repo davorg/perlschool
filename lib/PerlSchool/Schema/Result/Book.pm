@@ -117,6 +117,16 @@ __PACKAGE__->table("book");
   data_type: 'date'
   is_nullable: 1
 
+=head2 toc
+
+  data_type: 'text'
+  is_nullable: 1
+
+=head2 description
+
+  data_type: 'text'
+  is_nullable: 1
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -148,6 +158,10 @@ __PACKAGE__->add_columns(
   { data_type => "boolean", default_value => 1, is_nullable => 0 },
   "upddate",
   { data_type => "date", is_nullable => 1 },
+  "toc",
+  { data_type => "text", is_nullable => 1 },
+  "description",
+  { data_type => "text", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -200,8 +214,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07051 @ 2023-07-30 17:51:40
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VrCfIwM3zT2S9n0E36R6ew
+# Created by DBIx::Class::Schema::Loader v0.07051 @ 2023-08-26 17:17:39
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:bjd4qnXYXMXKfXrwcjtzXw
 
 use Moo;
 with 'MooX::Role::JSON_LD';
