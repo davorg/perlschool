@@ -1,0 +1,59 @@
+<ul>
+  <li>Introduction</li>
+  <li>YAPC::Europe 2009</li>
+  <li>Moose Or No Moose</li>
+  <li>Greenwich Mean Time</li>
+  <li>Perlanet Improvements</li>
+  <li>The “Without Whom”s</li>
+  <li>Building RPMs From CPAN Distributions</li>
+  <li>META.yml And Building RPMs</li>
+  <li>Crufty Old Perl</li>
+  <li>Perl Books</li>
+  <li>Learning About Traits</li>
+  <li>Marketing Perl</li>
+  <li>Too Easy Or Too Hard</li>
+  <li>An Open Letter To Linux Format</li>
+  <li>YAPC::Europe Report</li>
+  <li>“You Must Hate Version Control Systems”</li>
+  <li>CGI.pm vs Templates</li>
+  <li>A Cautionary Tale</li>
+  <li>Learning From Bad Code</li>
+  <li>DBIC vs DBI</li>
+  <li>Why Corporates Hate Perl</li>
+  <li>Perl Books</li>
+  <li>Removing Modules From Core</li>
+  <li>Misunderstanding Context</li>
+  <li>Perl APIs</li>
+  <li>Dots and Perl</li>
+  <li>Installing Modules</li>
+  <li>Programming Language Usage</li>
+  <li>Perl Usage</li>
+  <li>“I Do Not Want To Use Any Modules”</li>
+  <li>Perl’s Problems</li>
+  <li>Perl Recruitment Thoughts</li>
+  <li>Subroutines & Ampersands</li>
+  <li>Driving a Business With Perl</li>
+  <li>YAPC Europe 2015: A Community Is A Home</li>
+  <li>The Joy of Prefetch</li>
+  <li>Build RPMs Of CPAN Modules</li>
+  <li>The Long Death Of CGI.Pm</li>
+  <li>London Perl Workshop Review</li>
+  <li>Easy PSGI</li>
+  <li>Code Archaeology</li>
+  <li>Taming QMail</li>
+  <li>Updating Ogg::Vorbis::Header</li>
+  <li>YAPC Europe 2016</li>
+  <li>Version Numbers</li>
+  <li>Drawing Traffic Lights With Perl</li>
+  <li>Timeline Diagrams With Perl</li>
+  <li>Genealogical Timelines In Perl and SVG</li>
+  <li>London Perl Workshop Report</li>
+  <li>Two New Modules</li>
+  <li>Introducing People To Perl</li>
+  <li>The Perl Conference In Glasgow</li>
+  <li>Fixing A Bug</li>
+  <li>Please Don’t Use CGI.Pm</li>
+  <li>London Perl Workshop 2018</li>
+  <li>A Subtle Bug</li>
+  <li>PerlCon Europe 2019</li>
+</ul>
