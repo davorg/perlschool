@@ -18,13 +18,56 @@
 [% END -%]
           </p>
           <p class="lead">[% feature.blurb %]</p>
-[% IF feature.examples -%]
-          <h3>Example code</h3>
-          <ul>
-            <li><a href="/examples/[% feature.examples %].zip">[% feature.examples %].zip</a> (Windows line endings)</li>
-            <li><a href="/examples/[% feature.examples %].tar.gz">[% feature.examples %].tar.gz</a> (Unix/Linux line endings)</li>
-          </ul>
+[% IF feature.has_extras -%]
+          <div class="accordion" id="extras">
+[%   IF feature.examples -%]
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Example code
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#extras">
+                <div class="accordion-body">
+                  <ul>
+                    <li><a href="/examples/[% feature.examples %].zip">[% feature.examples %].zip</a> (Windows line endings)</li>
+                    <li><a href="/examples/[% feature.examples %].tar.gz">[% feature.examples %].tar.gz</a> (Unix/Linux line endings)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+[%   END -%]
+[%   IF feature.toc -%]
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Table of contents
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#extras">
+                <div class="accordion-body">
+                  [% feature.toc %]
+                </div>
+              </div>
+            </div>
+[%   END -%]
+[%   IF feature.description -%]
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Detailed description
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#extras">
+                <div class="accordion-body">
+                  [% feature.description %]
+                </div>
+              </div>
+            </div>
+[%   END -%]
+          </div>
 [% END -%]
+          <h3>Buy</h3>
 [% IF feature.leanpub_slug -%]
           <p><a href="https://leanpub.com/[% feature.leanpub_slug %]">Buy from LeanPub</a></p>
 [% END -%]

@@ -242,5 +242,15 @@ sub json_ld_fields { [
   } } },
 ]}
 
+sub has_extras {
+  my $self = shift;
+
+  for (qw( examples toc description )) {
+    return 1 if $self->$_;
+  }
+
+  return;
+}
+
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
