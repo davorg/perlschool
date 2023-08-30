@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use FindBin qw( $RealBin );
+use Path::Tiny qw( path );
+
+use feature 'say';
+
+use PerlSchool::Schema;
+
+my $sch = PerlSchool::Schema->get_schema;
+my $rs  = $sch->resultset('Book');
+
+my $slug = shift
+  or  die "Usage: $0 <slug>\n";
+
+my $book = $rs->find({ slug => $slug });
+
+die "Cannot find book with slug '$slug'\n"
+  unless $book;
+
+my $data_dir = "$RealBin/../data";
+
+my $cols = {};
+
+if ( -e "$data_dir/$slug.toc" ) {
+  $cols->{toc} = path("$data_dir/$slug.toc")->slurp_utf8;
+}
+if ( -e "data/$slug.desc" ) {
+  $cols->{description} = path("$data_dir/$slug.desc")->slurp_utf8;
+}
+
+unless (keys %$cols) {
+  die "No data files found for '$slug'\n";
+}
+
+$book->update($cols);
