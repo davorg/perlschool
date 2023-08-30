@@ -6,6 +6,7 @@ use feature 'say';
 
 use Template;
 use Time::Piece;
+use JSON;
 use Carp;
 
 use PerlSchool::Schema;
@@ -23,8 +24,19 @@ sub _build_tt {
     WRAPPER      => 'page.tt',
     VARIABLES    => {
       buildyear  => localtime->year,
+      app        => $_[0],
     },
   );
+}
+
+has json => (
+  isa        => 'JSON',
+  is         => 'ro',
+  lazy_build => 1,
+);
+
+sub _build_json {
+  return JSON->new->utf8->pretty;
 }
 
 has schema => (
@@ -98,6 +110,7 @@ has authors => (
 
 sub _build_authors {
   return [
+    grep { $_->is_perlschool_author }
     $_[0]->schema->resultset('Author')->search(
       undef, {
         order_by => { -asc => 'sortname' },
@@ -233,6 +246,18 @@ sub make_page {
   }
 
   return;
+}
+
+sub authors_json {
+  my $self = shift;
+
+  my @authors = map { $_->json_ld_data } $self->all_authors;
+
+  return $self->json->encode({
+    '@context' => 'https://schema.org',
+    '@type' => 'ItemList',
+    itemListElement => \@authors
+ });
 }
 
 1;

@@ -23,7 +23,7 @@
 [% IF template.name.match('\.html') -%]
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- [% template.name -%] -->
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPNNC024NN"></script>
@@ -74,6 +74,11 @@
 [% IF feature -%]
   <script type="application/ld+json">
 [% feature.json_ld %]
+  </script>
+[% END -%]
+[% IF template.name.match('^authors.html') -%]
+  <script type="application/ld+json">
+[% app.authors_json %]
   </script>
 [% END -%]
 

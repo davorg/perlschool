@@ -7,9 +7,10 @@
             knowledge ensures that you receive the most relevant, practical
             and engaging content to enhance your Perl programming skills.</p>
 [% FOR author IN authors;
+     NEXT UNLESS author.is_perlschool_author;
      author_books = [];
      FOR book IN author.books.sort('title');
-       NEXT UNLESS book.is_perlschool_book;
+       NEXT UNLESS book.is_perlschool_book AND book.is_live;
        author_books.push(book);
      END;
      NEXT UNLESS author_books.size -%]
@@ -18,8 +19,7 @@
           <p>[% author.bio %]</>
 [% END -%]
           <ul>
-[%   FOR book IN author_books;
-       NEXT UNLESS book.is_live -%]
+[%   FOR book IN author_books -%]
             <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b></a></li>
 [%   END -%]
           </ul>

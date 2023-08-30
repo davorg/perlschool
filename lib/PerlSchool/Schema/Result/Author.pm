@@ -105,6 +105,18 @@ __PACKAGE__->has_many(
 # Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-04-06 10:50:44
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:XrCL7rzJUrOm9+SxIr/CMQ
 
+use Moo;
+with 'MooX::Role::JSON_LD';
+
+sub json_ld_type { 'Person' };
+
+sub json_ld_fields { [qw( name ) ]}
+
+sub is_perlschool_author {
+  my $self = shift;
+
+  return $self->books->search({ is_perlschool_book => 1 })->count;
+}
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
