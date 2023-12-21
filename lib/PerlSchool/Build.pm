@@ -139,6 +139,18 @@ sub _build_amazon_sites {
   ];
 }
 
+has redirections => (
+  isa        => 'HashRef',
+  is         => 'ro',
+  lazy_build => 1,
+);
+
+sub _build_redirections {
+  return {
+    '/our-instructor/' => '/about',
+  };
+}
+
 sub _build_pages {
   return [qw( books about contact write )];
 }
@@ -150,6 +162,7 @@ sub run {
   $self->make_book_pages;
   $self->make_authors_page;
   $self->make_other_pages;
+  $self->make_redirections;
   $self->make_sitemap;
 
   return;
@@ -219,6 +232,23 @@ sub make_other_pages {
   }
 
   return;
+}
+
+sub make_redirections {
+  my $self = shift;
+
+  for my $from ( keys %{ $self->redirections } ) {
+    my $to = $self->redirections->{$from};
+
+    my $title = "Redirecting $from to $to";
+    $self->make_page(
+      'redirect.tt', {
+        title => $title,
+        redirect => $to,
+      },
+      "$from/index.html",
+    );
+  }
 }
 
 sub make_sitemap {
