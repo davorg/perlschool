@@ -8,6 +8,7 @@ use Template;
 use Time::Piece;
 use JSON;
 use Carp;
+use ENV::Util -load_dotenv;
 
 use PerlSchool::Schema;
 
@@ -46,7 +47,10 @@ has schema => (
 );
 
 sub _build_schema {
-  return PerlSchool::Schema->get_schema;
+  my %config = ENV::Util::prefix2hash('PERLSCHOOL_');
+  my $db = $config{db};
+warn "$db\n";
+  return PerlSchool::Schema->get_schema($db);
 }
 
 has canonical_url => (

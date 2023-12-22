@@ -16,7 +16,9 @@ __PACKAGE__->load_namespaces;
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:YMFCxB8Kw6j+Z8UUhMtWjQ
 
 sub get_schema {
-  return __PACKAGE__->connect('dbi:SQLite:./perlschool.db');
+  my $class = shift;
+  my ($db) = @_;
+  return $class->connect("dbi:SQLite:$db");
 }
 
 
