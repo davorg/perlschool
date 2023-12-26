@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PERLSCHOOL_DB: ./perlschool.db
+      PERLSCHOOL_DB: ${{ vars.PERLSCHOOL_DB }}
 
     steps:
     - name: Checkout
