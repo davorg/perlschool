@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      PERLSCHOOL_DB: ./perlschool.db
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
