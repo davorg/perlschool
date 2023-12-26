@@ -6,11 +6,26 @@ use feature 'say';
 
 use Template;
 use Time::Piece;
+use Path::Tiny;
 use JSON;
 use Carp;
 use ENV::Util -load_dotenv;
 
 use PerlSchool::Schema;
+
+has ['static_dir', 'output_dir'] => (
+  isa        => 'Path::Tiny',
+  is         => 'ro',
+  lazy_build => 1,
+);
+
+sub _build_static_dir {
+  return path('static');
+}
+
+sub _build_output_dir {
+  return path('docs');
+}
 
 has tt => (
   isa        => 'Template',
@@ -19,9 +34,11 @@ has tt => (
 );
 
 sub _build_tt {
+  my $self = shift;
+
   return Template->new(
     INCLUDE_PATH => [qw(in ttlib)],
-    OUTPUT_PATH  => 'docs',
+    OUTPUT_PATH  => $self->output_dir,
     WRAPPER      => 'page.tt',
     VARIABLES    => {
       buildyear  => localtime->year,
@@ -162,6 +179,7 @@ sub _build_pages {
 sub run {
   my $self = shift;
 
+  $self->make_static;
   $self->make_index_page;
   $self->make_book_pages;
   $self->make_authors_page;
@@ -170,6 +188,27 @@ sub run {
   $self->make_sitemap;
 
   return;
+}
+
+sub make_static {
+  my $self = shift;
+
+  my $static = $self->static_dir->stringify;
+  my $output = $self->output_dir->stringify;
+
+  $self->static_dir->visit(
+    sub {
+      my ($source) = @_;
+      return if $source->is_dir;
+      my $target = path($source =~ s/$static/$output/re);
+      say "$source -> $target [$static/$output]";
+
+      $target->parent->mkdir unless $target->parent->exists;
+      $source->copy($target);
+    }, { recurse => 1 },
+  )
+
+  # $self->static_dir->copy($self->output_dir);
 }
 
 sub make_index_page {
