@@ -1,5 +1,6 @@
-requires 'Template';
-requires 'DBIx::Class';
 requires 'DBD::SQLite';
-requires 'MooX::Role::JSON_LD';
+requires 'DBIx::Class';
 requires 'DateTime::Format::SQLite';
+requires 'ENV::Util';
+requires 'MooX::Role::JSON_LD';
+requires 'Template';
