@@ -10,6 +10,7 @@ use Path::Tiny;
 use JSON;
 use Carp;
 use ENV::Util -load_dotenv;
+use Amazon::Sites;
 
 use PerlSchool::Schema;
 
@@ -141,23 +142,29 @@ sub _build_authors {
 }
 
 has amazon_sites => (
-  isa        => 'ArrayRef',
+  isa        => 'Amazon::Sites',
   is         => 'ro',
   lazy_build => 1,
-  traits     => ['Array'],
-  handles    => {
-    all_amazon_sites => 'elements',
-  },
 );
 
 sub _build_amazon_sites {
-  return [
-    $_[0]->schema->resultset('AmazonSite')->search(
-      undef, {
-        order_by => { -asc => 'sort_order' },
-      },
-    ),
-  ];
+  my $self = shift;
+
+  return Amazon::Sites->new(
+    assoc_codes => $self->assoc_codes,
+  );
+}
+
+has assoc_codes => (
+  isa        => 'HashRef',
+  is         => 'ro',
+  lazy_build => 1,
+);
+
+sub _build_assoc_codes {
+  return {
+    UK => 'davblog-21',
+  };
 }
 
 has redirections => (
@@ -234,6 +241,7 @@ sub make_book_pages {
   my @books = $self->all_books;
 
   for (@books) {
+    my $output = 'books/' . $_->slug . '/index.html';
     $self->make_page(
       'book.html.tt', {
         feature   => $_,
@@ -241,7 +249,7 @@ sub make_book_pages {
         canonical => $self->canonical_url . 'books/' . $_->slug . '/',
         amazon_sites => $self->amazon_sites,
       },
-      'books/' . $_->slug . '/index.html',
+      $output,
     );
   }
 
