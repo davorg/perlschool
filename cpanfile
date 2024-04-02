@@ -1,3 +1,4 @@
+requires 'Amazon::Sites';
 requires 'DBD::SQLite';
 requires 'DBIx::Class';
 requires 'DateTime::Format::SQLite';
