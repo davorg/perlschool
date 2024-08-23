@@ -73,7 +73,7 @@
   <link href="/css/heroic-features.css" rel="stylesheet">
 
 [% IF canonical -%]
-  <link rel="canonical" href="[% canonical %]" />
+  <link rel="canonical" href="[% canonical %]">
 [% END -%]
 
 [% IF feature -%]
