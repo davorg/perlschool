@@ -238,14 +238,13 @@ sub make_index_page {
 sub make_book_pages {
   my $self = shift;
 
-  for ($self->all_books) {
-    my $feature = $_;
-    my $output = 'books/' . $_->slug . '/index.html';
+  for my $feature ($self->all_books) {
+    my $output = 'books/' . $feature->slug . '/index.html';
     $self->make_page(
       'book.html.tt', {
         feature   => $feature,
         books     => $self->books,
-        canonical => $self->canonical_url . 'books/' . $_->slug . '/',
+        canonical => $self->canonical_url . 'books/' . $feature->slug . '/',
         amazon_sites => $self->amazon_sites,
       },
       $output,
