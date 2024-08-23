@@ -14,7 +14,7 @@
           <p>
             <b>Publication date: [% feature.pubdate.strftime('%d %b %Y') %]</b>
 [% IF feature.upddate -%]
-            <br><b>Latest update: [% feature.upddate.strftime('%d %b %Y') %]</b></p>
+            <br><b>Latest update: [% feature.upddate.strftime('%d %b %Y') %]</b>
 [% END -%]
           </p>
           <p class="lead">[% feature.blurb %]</p>
