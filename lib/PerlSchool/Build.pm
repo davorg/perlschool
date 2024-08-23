@@ -221,12 +221,12 @@ sub make_static {
 sub make_index_page {
   my $self = shift;
 
-  my @books = $self->all_books;
+  my ($feature, @books) = $self->all_books;
 
   $self->make_page(
     'index.html.tt', {
-      feature   => $books[0],
-      books     => [ @books[ 1 .. $#books ] ],
+      feature   => $feature,
+      books     => \@books,
       canonical => $self->canonical_url,
     },
     'index.html',
@@ -238,14 +238,12 @@ sub make_index_page {
 sub make_book_pages {
   my $self = shift;
 
-  my @books = $self->all_books;
-
-  for (@books) {
+  for ($self->all_books) {
     my $output = 'books/' . $_->slug . '/index.html';
     $self->make_page(
       'book.html.tt', {
         feature   => $_,
-        books     => \@books,
+        books     => $self->books,
         canonical => $self->canonical_url . 'books/' . $_->slug . '/',
         amazon_sites => $self->amazon_sites,
       },
