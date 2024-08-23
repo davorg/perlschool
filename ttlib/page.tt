@@ -133,8 +133,17 @@
 
 [% content -%]
 
-          <!-- Go to dashboard to customize your tools -->
-          <p><div class="addthis_native_toolbox"></div></p>
+          <!-- AddToAny BEGIN -->
+          <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_x"></a>
+            <a class="a2a_button_whatsapp"></a>
+            <a class="a2a_button_email"></a>
+            <a class="a2a_button_copy_link"></a>
+          </div>
+          <script async src="https://static.addtoany.com/menu/page.js"></script>
+          <!-- AddToAny END -->
 
         </div>
       </div>
@@ -181,17 +190,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
           crossorigin="anonymous"></script>
-  <!-- AddToAny BEGIN -->
-  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_x"></a>
-    <a class="a2a_button_whatsapp"></a>
-    <a class="a2a_button_email"></a>
-    <a class="a2a_button_copy_link"></a>
-  </div>
-  <script async src="https://static.addtoany.com/menu/page.js"></script>
-  <!-- AddToAny END -->
 
 </body>
 
