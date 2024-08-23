@@ -239,10 +239,11 @@ sub make_book_pages {
   my $self = shift;
 
   for ($self->all_books) {
+    my $feature = $_;
     my $output = 'books/' . $_->slug . '/index.html';
     $self->make_page(
       'book.html.tt', {
-        feature   => $_,
+        feature   => $feature,
         books     => $self->books,
         canonical => $self->canonical_url . 'books/' . $_->slug . '/',
         amazon_sites => $self->amazon_sites,
