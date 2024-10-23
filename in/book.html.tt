@@ -12,7 +12,11 @@
         <div class="col-md-6">
 	  <h2>By [% feature.author.name %]</h2>
           <p>
+[% IF feature.is_published -%]
             <b>Publication date: [% feature.pubdate.strftime('%d %b %Y') %]</b>
+[% ELSE -%]
+            <span class="coming-soon">Coming soon</span>
+[% END -%]
 [% IF feature.upddate -%]
             <br><b>Latest update: [% feature.upddate.strftime('%d %b %Y') %]</b>
 [% END -%]
@@ -67,16 +71,18 @@
 [%   END -%]
           </div>
 [% END -%]
+[% IF feature.is_published -%]
           <h3>Buy</h3>
-[% IF feature.leanpub_slug -%]
+[%   IF feature.leanpub_slug -%]
           <p><a href="https://leanpub.com/[% feature.leanpub_slug %]">Buy from LeanPub</a></p>
-[% END -%]
-[% IF feature.amazon_isin -%]
-          <p>Buy from Amazon<br>
-[%   FOR site IN amazon_sites.sites -%]
-          <a href="[% site.asin_url(feature.amazon_isin) %]" title="[% site.country %]">[% site.code %]</a>[% UNLESS loop.last %] / [% END %]
 [%   END -%]
+[%   IF feature.amazon_isin -%]
+          <p>Buy from Amazon<br>
+[%     FOR site IN amazon_sites.sites -%]
+          <a href="[% site.asin_url(feature.amazon_isin) %]" title="[% site.country %]">[% site.code %]</a>[% UNLESS loop.last %] / [% END %]
+[%     END -%]
           </p>
-[% END -%]
+[%   END;
+   END -%]
 	</div>
       </div>

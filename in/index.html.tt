@@ -27,7 +27,11 @@
           <p class="display-4">[% feature.subtitle | html %]</p>
 [% END -%]
 	  <p><b>By [% feature.author.name %]</b></p>
+[% IF feature.is_published -%]
           <p><b>Published: [% feature.pubdate.strftime('%d %b %Y') %]</b>
+[% ELSE -%]
+          <p class="coming-soon">Coming soon</p>
+[% END -%]
 [% IF feature.upddate -%]
             <br><b>Latest update: [% feature.upddate.strftime('%d %b %Y') %]</b></p>
 [% END -%]

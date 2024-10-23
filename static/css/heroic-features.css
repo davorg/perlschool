@@ -25,3 +25,8 @@ img.float {
 .col-2 {
   padding-top: 28px;
 }
+
+.coming-soon {
+  color: red;
+  font-weight: bold;
+}

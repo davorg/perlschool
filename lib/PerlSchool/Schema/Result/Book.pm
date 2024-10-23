@@ -220,6 +220,8 @@ __PACKAGE__->belongs_to(
 use Moo;
 with 'MooX::Role::JSON_LD';
 
+use DateTime;
+
 sub json_ld_type { 'Book' };
 
 sub json_ld_fields { [
@@ -250,6 +252,12 @@ sub has_extras {
   }
 
   return;
+}
+
+sub is_published {
+  my $self = shift;
+
+  return $self->pubdate <= DateTime->now;
 }
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
