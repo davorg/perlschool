@@ -180,7 +180,7 @@ sub _build_redirections {
 }
 
 sub _build_pages {
-  return [qw( books about contact write )];
+  return [qw( books about contact write lpw )];
 }
 
 sub run {
