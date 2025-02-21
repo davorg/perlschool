@@ -176,6 +176,7 @@ has redirections => (
 sub _build_redirections {
   return {
     '/our-instructor/' => '/about',
+    '/dmp/' => '/books/data-munging/',
   };
 }
 
