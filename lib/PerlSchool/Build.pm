@@ -37,7 +37,7 @@ has tt => (
 sub _build_tt {
   my $self = shift;
 
-  return Template->new(
+  my $tt = Template->new(
     INCLUDE_PATH => [qw(in ttlib)],
     OUTPUT_PATH  => $self->output_dir,
     WRAPPER      => 'page.tt',
@@ -46,6 +46,9 @@ sub _build_tt {
       app        => $_[0],
     },
   );
+
+  warn "TT attribute: $tt\n";
+  return $tt;
 }
 
 has json => (
@@ -187,12 +190,12 @@ sub _build_pages {
 sub run {
   my $self = shift;
 
+  $self->make_redirections;
   $self->make_static;
   $self->make_index_page;
   $self->make_book_pages;
   $self->make_authors_page;
   $self->make_other_pages;
-  $self->make_redirections;
   $self->make_sitemap;
 
   return;
@@ -318,7 +321,18 @@ sub make_page {
   my $self = shift;
   my ( $template, $vars, $output ) = @_;
 
-  $self->tt->process( $template, $vars, $output )
+  # Ensure the output directory exists
+  my $output_path = path($self->output_dir, $output);
+  $output_path->parent->mkpath;
+
+  # Explicitly set the WRAPPER option
+  my $options = {
+    WRAPPER => 'page.tt',
+  };
+
+  warn "Using TT attribute: " . $self->tt . "\n";
+
+  $self->tt->process( $template, $vars, $output, $options )
     or croak $self->tt->error;
 
   if ( exists $vars->{canonical} ) {

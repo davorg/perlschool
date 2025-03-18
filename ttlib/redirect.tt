@@ -1,3 +1,1 @@
-[% WRAPPER page.tt %]
 <p>[% title %]</p>
-[% END %]
