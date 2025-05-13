@@ -43,7 +43,7 @@ sub _build_tt {
     WRAPPER      => 'page.tt',
     VARIABLES    => {
       buildyear  => localtime->year,
-      app        => $_[0],
+      app        => $self,
     },
   );
 
