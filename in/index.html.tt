@@ -17,12 +17,12 @@
       </div>
       <div class="row">
         <div class="col-md-7">
-          <h1>Latest Release</h1>
+          <h2>Latest Release</h2>
         </div>
       </div>
       <div class="row">
         <div class="col-md-7">
-	  <h2 class="display-3">[% feature.title | html %]</h2>
+	  <h3 class="display-3">[% feature.title | html %]</h3>
 [% IF feature.subtitle -%]
           <p class="display-4">[% feature.subtitle | html %]</p>
 [% END -%]
