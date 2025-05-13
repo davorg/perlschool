@@ -15,7 +15,7 @@
        description = 'List of books published by Perl School Publishing';
      ELSE;
        title = page_title _ ' - ' _ title;
-       description = title.replace('- ', '');
+       description = title;
      END;
    ELSE;
      title = title _ ' - Perl eBooks written by experts';
