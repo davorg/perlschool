@@ -21,9 +21,7 @@
           [% book.title | html %]
         </a>
         <span class="muted"> — </span>
-        <a href="/authors/[% book.author.slug %]/" class="book-author">
-          [% book.author.name | html %]
-        </a>
+        [% book.author.name | html %]
       </div>
 
       [% IF book.blurb -%]
