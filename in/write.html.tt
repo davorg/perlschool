@@ -1,59 +1,52 @@
 [% PROCESS util.tt -%]
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-3">Write for us</h1>
-          <p>Share your Perl expertise with our community.</p>
+          <h1 class="section-title">Write for us</h1>
 
-          <p>At Perl School, we're always on the lookout for skilled and
-            passionate Perl programmers who are eager to share their knowledge
-            with our growing community of readers. If you have a
-            unique perspective, valuable insights, or practical techniques
-            that can help others excel in Perl programming, we'd love to
-            hear from you!</p>
+          <div class="hero mb-4">
+            <p class="lead">
+              Short, practical ebooks about modern Perl. If you have a sharp
+              idea and examples from real projects, we’d like to hear from you.
+            </p>
+            <div class="action-row">
+              <a class="btn btn-primary" href="mailto:hello@perlschool.com?subject=Pitch%3A%20Your%20idea">Send a pitch</a>
+              <a class="btn btn-outline-primary" href="/books/">See recent titles</a>
+            </div>
+          </div>
 
-          <h2>Why Write for Perl School?</h2>
 
-          <ul>
-            <li>Reach a dedicated audience of Perl enthusiasts, programmers
-              and developers</li>
-            <li>Collaborate with other esteemed Perl authors and experts</li>
-            <li>Enhance your professional profile and reputation within the
-              Perl community</li>
-          </ul>
-
-          <h2>What We're Looking For:</h2>
+          <h2 class="section-title">Why Write for Perl School?</h2>
 
           <ul>
-            <li>Well-researched and engaging content that covers a wide range
-              of Perl topics, from beginner tutorials to advanced techniques
-              and best practices</li>
-            <li>Real-world examples and case studies that demonstrate the
-              practical applications of Perl programming</li>
-            <li>Insightful articles on the latest trends, updates, and news in
-              the Perl ecosystem</li>
+            <li>Reach a focused audience of Perl developers and teams.</li>
+            <li>Work with friendly editing and a small, responsive press.</li>
+            <li>Keep your book current — we favour concise, updateable
+              ebooks.</li>
           </ul>
 
-          <h2>Submission Guidelines:</h2>
+          <h2 class="section-title">What We're Looking For:</h2>
 
           <ul>
-            <li>Submit a brief proposal outlining your article or ebook idea,
-              including the topic, target audience, and key takeaways</li>
-            <li>Include a short author bio, highlighting your relevant
-              experience and expertise in Perl programming</li>
-            <li>Provide links to any previously published work, if
-              available</li>
+            <li>Modern Perl: current syntax, proven CPAN modules, and
+              production-tested techniques.</li>
+            <li>Hands-on examples and small, runnable code snippets.</li>
+            <li>Focused scope (short books that respect the reader’s time).</li>
           </ul>
 
-          <p>Our editorial team will review your submission and respond within
-            2-3 weeks. If your proposal is accepted, we'll work closely with
-            you to develop the content and ensure it aligns with our quality
-            standards and brand values.</p>
+          <h2 class="section-title">Submission Guidelines:</h2>
 
-          <p>We look forward to welcoming you to our team of talented authors
-            and sharing your Perl expertise with our community of readers.
-            Submit your proposal today and join us in our mission to empower
-            Perl programmers worldwide.</p>
+          <ul>
+            <li>One-page pitch: working title, audience, 5–8 bullet outline,
+              and key takeaway.</li>
+            <li>A short bio (2–3 lines) and links to any talks, articles, or
+              repos.</li>
+            <li>Sample: one section or ~800 words that shows tone and level.</li>
+          </ul>
 
-          <p>Send your proposals to <a href="mailto:hello@perlschool.com">hello@perlschool.com</a>.</p>
+          <p>
+            Send your pitch to
+            <a href="mailto:hello@perlschool.com?subject=Pitch%3A%20Your%20idea">hello@perlschool.com</a>.
+            We’ll get back to you soon.
+          </p>
         </div>
       </div>

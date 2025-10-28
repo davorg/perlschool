@@ -127,6 +127,11 @@ __PACKAGE__->table("book");
   data_type: 'text'
   is_nullable: 1
 
+=head2 highlights
+
+  data_type: 'text'
+  is_nullable: 1
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -161,6 +166,8 @@ __PACKAGE__->add_columns(
   "toc",
   { data_type => "text", is_nullable => 1 },
   "description",
+  { data_type => "text", is_nullable => 1 },
+  "highlights",
   { data_type => "text", is_nullable => 1 },
 );
 
@@ -214,8 +221,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07051 @ 2023-08-26 17:17:39
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:bjd4qnXYXMXKfXrwcjtzXw
+# Created by DBIx::Class::Schema::Loader v0.07053 @ 2025-10-28 13:02:23
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:NcGzgczhvBQtBtBR5e2pWA
 
 use Moo;
 with 'MooX::Role::JSON_LD';
@@ -258,6 +265,20 @@ sub is_published {
   my $self = shift;
 
   return $self->pubdate <= DateTime->now;
+}
+
+sub highlight_list {
+  my $self = shift;
+
+  return unless $self->highlights;
+
+  return [ split /:/, $self->highlights ];
+}
+
+sub has_badges {
+  my $self = shift;
+
+  return $self->highlights || ! $self->is_published;
 }
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

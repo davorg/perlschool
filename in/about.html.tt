@@ -1,21 +1,28 @@
 [% PROCESS util.tt -%]
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-3">About</h1>
-	  <h2>About Perl School</h2>
-          <p>The Perl School brand has its roots in a series of low-cost
-            Perl training courses that Dave Cross ran in 2012. By running
-            low-cost training at the weekend, he hoped to encourage more
-            programmers to keep their Perl knowledge up to date. These
-            courses were run regularly for about a year before the idea
-            was put on hold for a while.</p>
+          <h1 class="section-title">About</h1>
+          <p>Perl School began life as a series of low-cost weekend classes.
+            A few years later we turned that same practical approach into
+            ebooks: short, focused, and written by people who use Perl every
+            day. If you care about clear explanations and real-world examples,
+            you’re in the right place.</p>
 
-          <p>Dave always knew that he would want to return to the Perl
-            School brand at some point and late in 2017 he realised what
-            the obvious next step was - low-cost Perl books. He had already
-            developed a pipeline for creating e-books from Markdown files
-            so it was a short step to republishing some of his training
-            materials as books.</p>
+	  <h2 class="section-title">About Perl School</h2>
+
+          <p>The Perl School brand has its roots in a series of low-cost Perl
+            training courses that Dave Cross ran in 2012. By running low-cost
+            training at the weekend, he hoped to encourage more programmers to
+            keep their Perl knowledge up to date. These courses were run
+            regularly for about a year before the idea was put on hold for
+            a while.</p>
+
+          <p>Dave always knew that he would want to return to the Perl School
+            brand at some point and late in 2017 he realised what the obvious
+            next step was - low-cost Perl books. He had already developed a
+            pipeline for creating e-books from Markdown files so it was a
+            short step to republishing some of his training materials as
+            books.</p>
 
           <p>The first Perl School book,
             <a href="/books/perl-taster/"><i>Perl Taster</i></a> was published
@@ -24,15 +31,15 @@
             <a href="/books/selenium-perl/"><i>Selenium and Perl</i></a> and
             <a href="/books/">several more</a> have followed since then.</p>
 
-          <p>If you are interested in writing a book for the Perl School
-            range, then please get in touch. We are
-            <a href="https://twitter.com/perl_school">@perl_school</a> on
-            Twitter.</p>
+          <h2 class="section-title">About Dave Cross</h2>
 
-          <h2>About Dave Cross</h2>
-
-          <p>[% an_image('dave', 'Dave Cross', 'float', 'jpg') -%]
-            Dave Cross has been programming professionally since 1988 and
+          <figure class="bio-figure">          
+            [% an_image('dave', 'Dave Cross', 'bio-photo img-fluid', 'png') -%]
+            <figcaption class="bio-caption muted">
+              Dave Cross - author, trainer and long-time Perl community organiser.
+            </figcaption>
+          </figure>
+          <p>Dave Cross has been programming professionally since 1988 and
             using Perl since 1996. In that time he has used Perl as a glue
             language, for web development and as a general purpose
             programming language. He is the author of <i>Data Munging with
@@ -60,5 +67,12 @@
             source development consultancy based in London. The rumours
             about the gold-plated cats were never true.</p>
 
+          <aside class="callout mt-4">
+            <p class="mb-2"><strong>Interested in writing for
+              Perl School</strong></p>
+            <p class="mb-0">We're always keen on practical, modern Perl topics.
+              Get in touch at
+              <a href="mailto:hello@perlschool.com">hello@perlschool.com</a></p>
+          </aside>
         </div>
       </div>

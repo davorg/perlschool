@@ -1,27 +1,38 @@
 [% PROCESS util.tt -%]
-      <div class="row">
-        <div class="col-md-12">
-	  <h1 class="display-3">[% feature.title | html %]</h1>
-[% IF feature.subtitle -%]
-          <h2 class="display-4">[% feature.subtitle | html %]</h2>
-[% END -%]
-        </div>
-	<div class="col-md-6">
-	  <p>[% an_image(feature.image, feature.title, 'img-fluid') -%]
-	</div>
-        <div class="col-md-6">
-	  <h2>By [% feature.author.name %]</h2>
-          <p>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="section-title">[% feature.title | html %]</h1>
+    [% IF feature.subtitle -%]
+      <p class="display-4 mb-3">[% feature.subtitle | html %]</p>
+    [% END -%]
+  </div>
+</div>
+
+<div class="row hero align-items-start g-4">
+  <div class="col-lg-5">
+    [% an_image(feature.image, feature.title, 'img-fluid book-cover', 'jpg') -%]
+  </div>
+
+  <div class="col-lg-7">
+    <p class="meta"><strong>By [% feature.author.name %]</strong></p>
+
+    <p class="muted mb-2">
 [% IF feature.is_published -%]
-            <b>Publication date: [% feature.pubdate.strftime('%d %b %Y') %]</b>
+      <strong>Publication date:</strong> [% feature.pubdate.strftime('%d %b %Y') %]
 [% ELSE -%]
-            <span class="coming-soon">Coming soon</span>
+      <strong>Coming soon</strong>
 [% END -%]
 [% IF feature.upddate -%]
-            <br><b>Latest update: [% feature.upddate.strftime('%d %b %Y') %]</b>
+      <br><strong>Latest update:</strong> [% feature.upddate.strftime('%d %b %Y') %]
 [% END -%]
-          </p>
-          <p class="lead">[% feature.blurb %]</p>
+    </p>
+
+[%# If you have a short blurb/description field, show it. %]
+[% IF feature.blurb -%]
+    <p>[% feature.blurb %]</p>
+[% END -%]
+
 [% IF feature.has_extras -%]
           <div class="accordion" id="extras">
 [%   IF feature.examples -%]
@@ -71,18 +82,36 @@
 [%   END -%]
           </div>
 [% END -%]
-[% IF feature.is_published -%]
-          <h3>Buy</h3>
+
+    <h2 class="section-title mt-3">Buy</h2>
+    <div class="action-row">
 [%   IF feature.leanpub_slug -%]
-          <p><a href="https://leanpub.com/[% feature.leanpub_slug %]">Buy from LeanPub</a></p>
+      <a class="btn btn-primary" href="https://leanpub.com/[% feature.leanpub_slug %]">Buy on Leanpub</a>
 [%   END -%]
 [%   IF feature.amazon_isin -%]
-          <p>Buy from Amazon<br>
-[%     FOR site IN amazon_sites.sites -%]
-          <a href="[% site.asin_url(feature.amazon_isin) %]" title="[% site.country %]">[% site.code %]</a>[% UNLESS loop.last %] / [% END %]
-[%     END -%]
-          </p>
-[%   END;
-   END -%]
-	</div>
-      </div>
+      <a
+        class="btn btn-outline-primary"
+        data-amazon-asin="[% feature.amazon_isin | html %]"
+        data-amazon-text="Buy on Amazon"
+      ></a>
+[%   END -%]
+    </div>
+
+  </div>
+</div>
+
+<!-- amazon-store: enhances data-amazon-asin links and renders store grids -->
+<script src="https://cdn.davecross.co.uk/js/amazon-store/v1/amazon-store.min.js" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var opts = {};
+[% IF site.amazon_tag -%]
+    opts.tag = "[% site.amazon_tag | html %]";
+[% END -%]
+    if (window.AmazonStore) {
+      AmazonStore.enhanceAll(opts);
+      AmazonStore.renderStoreGridAll(opts);
+    }
+  });
+</script>
+

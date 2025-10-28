@@ -129,7 +129,7 @@
     <div class="row">
       <div class="col-10">
         <!-- Jumbotron Header -->
-        <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="p-5 mb-4 bg-light rounded-3 hero">
 
 [% content -%]
 
@@ -147,7 +147,7 @@
 
         </div>
       </div>
-      <div class="col-2">
+      <div class="col-2 layout-sidebar d-none d-xl-block">
         [% INCLUDE twitter.tt %]
       </div>
     </div>

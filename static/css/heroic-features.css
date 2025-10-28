@@ -1,32 +1,441 @@
-/*!
- * Start Bootstrap - Heroic Features (https://startbootstrap.com/templates/heroic-features)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-heroic-features/blob/master/LICENSE)
- */
-body {
-  padding-top: 56px;
-  background-color: #e0e0e0;
+/* Perl School — Publisher theme (v1.1)
+   - Keeps the Perl School green
+   - Smaller hero title/subtitle
+   - Hardened badges styling
+   - Light by default, clean dark mode
+*/
+
+/* 1) Brand tokens and fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+
+:root {
+  /* Brand */
+  --brand: #2a8c4a;
+  --brand-600: #247a41;
+  --brand-700: #1f6b39;
+  --brand-50: #eaf6ee;
+
+  /* Neutrals */
+  --bg: #ffffff;
+  --text: #1f2937;      /* gray-800 */
+  --muted: #6b7280;     /* slate-500 */
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  /* Type */
+  --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --ff-serif: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --lh: 1.55;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0f14;
+    --text: #e5e7eb;
+    --muted: #9aa3b2;
+    --border: #1e293b;
+    --card: #0f141a;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.40), 0 2px 6px rgba(0, 0, 0, 0.30);
+    --brand-50: #102317;
+  }
+}
+
+/* 2) Global */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-sans);
+  line-height: var(--lh);
+  color: var(--text);
+  background: var(--bg);
+  padding-top: 64px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Links and buttons */
+a {
+  color: var(--brand);
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--brand-600);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand-600);
+  --bs-btn-hover-border-color: var(--brand-600);
+  --bs-btn-active-bg: var(--brand-700);
+  --bs-btn-active-border-color: var(--brand-700);
+  box-shadow: var(--shadow);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand);
+  --bs-btn-hover-border-color: var(--brand);
+}
+
+/* 3) Navbar */
+.navbar {
+  box-shadow: var(--shadow);
+  background: var(--card) !important;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.navbar-brand img,
+.navbar-brand svg {
+  height: 28px;
+  width: auto;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.nav-link.active,
+.nav-link:focus,
+.nav-link:hover {
+  color: var(--brand) !important;
+}
+
+/* 4) Hero (featured title) */
+.hero {
+  background: linear-gradient(180deg, var(--brand-50), transparent 55%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: clamp(1.2rem, 1.5vw + 1rem, 2rem);
+  box-shadow: var(--shadow);
+}
+
+.hero h1,
+.hero h2,
+.hero h3 {
+  font-family: var(--ff-serif);
+}
+
+/* Smaller, more bookish sizes */
+.hero .display-3 {
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: clamp(1.9rem, 2.8vw + 0.4rem, 2.85rem);
+}
+
+.hero .display-4 {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.2vw + 0.5rem, 1.5rem);
+}
+
+.hero .meta {
+  font-weight: 600;
+}
+
+/* Badges — explicit so they always render */
+.hero .badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.35rem 0 0.85rem 0;
+}
+
+.hero .badges .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.6rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  background: var(--brand-50);
+  color: var(--brand-700) !important;
+  border: 1px solid var(--brand-600);
+}
+
+.hero .badges .badge.badge-outline {
+  background: transparent;
+  color: var(--brand-700) !important;
+  border: 1px solid var(--brand-600);
+}
+
+.hero .cover {
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.18));
+  border-radius: 8px;
+}
+
+/* Stack cover under text on tablet/mobile */
+@media (max-width: 991.98px) {
+  .hero .cover {
+    margin-top: 1rem;
+  }
+}
+
+/* 5) Cards (book grid) */
+.card {
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.card .card-img-top {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  object-fit: cover;
+}
+
+.card .card-title {
+  font-family: var(--ff-serif);
+  font-weight: 700;
+}
+
+.card .card-text {
+  color: var(--muted);
+}
+
+.card .btn {
+  margin-top: 0.25rem;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* 6) Utilities and layout */
+.section-title {
+  font-family: var(--ff-serif);
+  font-weight: 700;
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.badge-outline {
+  border: 1px solid var(--border);
+  background: transparent;
+}
+
+/* Hide the right sidebar on small/medium screens */
+@media (max-width: 1199.98px) {
+  .layout-sidebar {
+    display: none;
+  }
+}
+
+/* 7) Footer */
+footer {
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+
+footer a {
+  color: var(--brand);
+}
+
+/* 8) Legacy cleanups */
 .jumbletron {
-  background-color: #e0e0e0;
+  background: transparent;
 }
 
 img.float {
-  float: right;
-  padding-left: 15px;
-  padding-bottom: 15px;
-  filter: drop-shadow(8px 8px 8px #222);
-}
-
-.col-10 {
-}
-
-.col-2 {
-  padding-top: 28px;
+  float: none;
 }
 
 .coming-soon {
-  color: red;
-  font-weight: bold;
+  color: var(--brand-700);
+  font-weight: 700;
 }
+
+/* About page enhancements */
+
+.callout {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+/* About page — float the portrait right on wide screens, stacked on narrow */
+
+.bio-figure {
+  margin: 0 0 1rem 0;
+}
+
+.bio-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.bio-caption {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Wide screens: float right at ~two-thirds of the text column */
+@media (min-width: 992px) {
+  .bio-figure {
+    float: right;
+    width: 66%;
+    max-width: 380px;
+    margin: 0 0 1rem 1.25rem;
+  }
+}
+
+/* Books index — media-style list with small covers */
+
+.book-list {
+  margin: 0;
+  padding: 0;
+}
+
+.book-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.book-item:last-child {
+  border-bottom: none;
+}
+
+.book-thumb-wrap {
+  flex: 0 0 auto;
+}
+
+.book-thumb {
+  display: block;
+  width: 72px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.book-thumb.placeholder {
+  display: none;
+  width: 72px;
+  height: 104px;
+  border-radius: 6px;
+  background: var(--brand-50);
+  border: 1px solid var(--border);
+}
+
+.book-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.book-title {
+  font-family: var(--ff-serif);
+  font-weight: 700;
+}
+
+.book-author {
+  color: var(--brand);
+}
+
+.book-author:hover {
+  color: var(--brand-600);
+}
+
+.book-blurb {
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* Stack nicely on narrow screens */
+@media (max-width: 575.98px) {
+  .book-item {
+    gap: 0.75rem;
+  }
+
+  .book-thumb {
+    width: 56px;
+  }
+
+  .book-thumb.placeholder {
+    width: 56px;
+    height: 82px;
+  }
+}
+
+/* Authors page — horizontal row of cover images */
+.author-book-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin: 0.5rem 0 1.25rem 0;
+}
+
+.author-book-link {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.author-book-thumb {
+  display: block;
+  width: 88px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.author-book-thumb--placeholder {
+  width: 88px;
+  height: 126px;
+  border-radius: 8px;
+  background: var(--brand-50);
+  border: 1px solid var(--border);
+}
+
+.author-book-link:hover .author-book-thumb {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.14), 0 5px 12px rgba(0, 0, 0, 0.10);
+}
+
+/* Smaller thumbs on very narrow screens */
+@media (max-width: 575.98px) {
+  .author-book-thumb {
+    width: 72px;
+  }
+
+  .author-book-thumb--placeholder {
+    width: 72px;
+    height: 104px;
+  }
+}
+
+/* Utility row for hero buttons on simple pages */
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.25rem;
+}
+

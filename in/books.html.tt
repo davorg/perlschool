@@ -1,11 +1,38 @@
-      <div class="row">
-        <div class="col-md-12">
-	  <h1 class="display-3">List of books</h1>
-          <ul>
-[% FOR book IN books.sort('title') -%]
-            <li><a href="/books/[% book.slug %]/"><b>[% book.title | html %]</b> - [% book.author.name %]</a>
-              <br>[% book.blurb %]...</li>
-[% END -%]
-          </ul>
-        </div>
+[% PROCESS util.tt -%]
+<h1 class="section-title">Books</h1>
+<div class="hero mb-4">
+  <p class="lead">All of the Perl School titles.</p>
+</div>
+
+<ul class="list-unstyled book-list">
+[% FOREACH book IN books.sort('title') -%]
+  <li class="book-item d-flex align-items-start gap-3 mb-3">
+    <div class="book-thumb-wrap">
+      [% IF book.image -%]
+        [% an_image(book.image, book.title, 'book-thumb', 'png') -%]
+      [% ELSE -%]
+        <span class="book-thumb placeholder" aria-hidden="true"></span>
+      [% END -%]
+    </div>
+
+    <div class="book-meta">
+      <div class="fw-semibold">
+        <a href="/books/[% book.slug %]/" class="book-title">
+          [% book.title | html %]
+        </a>
+        <span class="muted"> — </span>
+        <a href="/authors/[% book.author.slug %]/" class="book-author">
+          [% book.author.name | html %]
+        </a>
       </div>
+
+      [% IF book.blurb -%]
+        <p class="mb-0 book-blurb">
+          [% book.blurb %]
+        </p>
+      [% END -%]
+    </div>
+  </li>
+[% END -%]
+</ul>
+

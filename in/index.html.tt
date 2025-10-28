@@ -2,43 +2,48 @@
       <div class="row">
         <div class="col-md-12">
           <h1>Welcome to Perl School</h1>
-          <p>Welcome to Perl School, your premier destination for expertly
-            crafted ebooks on the Perl programming language. Our mission
-            is to empower programmers of all skill levels to master the
-            art of Perl coding through high-quality, engaging, and practical
-            content. Our carefully curated selection of ebooks features
-            renowned authors and Perl experts, ensuring you receive the best
-            guidance and insights as you embark on your learning journey.
-            Whether you're a beginner seeking a strong foundation or an
-            experienced programmer looking to expand your knowledge, Perl
-            School offers invaluable resources to help you excel. Join our
-            community and unlock your true potential with Perl School today!</p>
+          <p>Perl School publishes clear, practical ebooks for modern Perl
+            programmers. Our goal is to help you write better Perl, faster —
+            with up‑to‑date examples, real‑world techniques, and guidance from
+            authors who use Perl every day. Whether you’re starting out or
+            refreshing your skills, you’ll find books you can actually apply
+            to your work.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-7">
-          <h2>Latest Release</h2>
+          <h2 class="section-title">Latest Release</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-7">
+      <div class="row hero align-items-center">
+        <div class="col-lg-7">
 	  <h3 class="display-3">[% feature.title | html %]</h3>
 [% IF feature.subtitle -%]
           <p class="display-4">[% feature.subtitle | html %]</p>
 [% END -%]
 	  <p><b>By [% feature.author.name %]</b></p>
 [% IF feature.is_published -%]
-          <p><b>Published: [% feature.pubdate.strftime('%d %b %Y') %]</b>
-[% ELSE -%]
-          <p class="coming-soon">Coming soon</p>
+          <p class="muted">Published: [% feature.pubdate.strftime('%d %b %Y') %]</p>
+[% END -%]
+[% IF feature.has_badges -%]
+          <div class="badges">
+[%  IF NOT feature.is_published -%]
+            <span class="badge badge-outline">Coming soon</span>
+[%  END -%]
+[%  FOR highlight IN feature.highlight_list -%]
+            <span class="badge">[% highlight %]</span>
+[%  END -%]
+          </div>
 [% END -%]
 [% IF feature.upddate -%]
-            <br><b>Latest update: [% feature.upddate.strftime('%d %b %Y') %]</b></p>
+            <p class="muted">Latest update: [% feature.upddate.strftime('%d %b %Y') %]</p>
 [% END -%]
           <p class="lead">[% feature.blurb %]</p>
-          <a href="/books/[% feature.slug %]/" class="btn btn-primary btn-lg">Read more...</a>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="/books/[% feature.slug %]/" class="btn btn-primary btn-lg">Read more...</a>
+          </div>
 	</div>
-	<div class="col-md-5">
-	  <p>[% an_image(feature.image, feature.title, 'img-fluid') -%]</p>
+	<div class="col-lg-5 text-center">
+	  <p class="mb-0"><span class="visually-hidden">Cover image</span> [% an_image(feature.image, feature.title, 'img-fluid') -%]</p>
 	</div>
       </div>
