@@ -104,19 +104,19 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/books/">Books</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/authors/">Authors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/write/">Write for us</a>
+            <a class="nav-link" href="https://cover.perlschool.com/">Cover maker</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://cover.perlschool.com/">Cover maker</a>
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/write/">Write for us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/contact/">Contact</a>
