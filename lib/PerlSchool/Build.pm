@@ -330,8 +330,6 @@ sub make_page {
     WRAPPER => 'page.tt',
   };
 
-  warn "Using TT attribute: " . $self->tt . "\n";
-
   $self->tt->process( $template, $vars, $output, $options )
     or croak $self->tt->error;
 
