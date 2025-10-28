@@ -116,6 +116,9 @@
             <a class="nav-link" href="/write/">Write for us</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="https://cover.perlschool.com/">Cover maker</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/contact/">Contact</a>
           </li>
         </ul>
