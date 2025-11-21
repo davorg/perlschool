@@ -1,6 +1,7 @@
 requires 'Amazon::Sites';
 requires 'DBD::SQLite';
 requires 'DBIx::Class';
+requires 'DBIx::Class::Schema::ResultSetNames';
 requires 'DateTime::Format::SQLite';
 requires 'ENV::Util';
 requires 'Moose';
