@@ -20,13 +20,13 @@
     <p class="muted mb-2">
 [% IF feature.is_published -%]
       <strong>Publication date:</strong> [% feature.pubdate.strftime('%d %b %Y') %]
-[% ELSE -%]
-      <strong>Coming soon</strong>
 [% END -%]
 [% IF feature.upddate -%]
       <br><strong>Latest update:</strong> [% feature.upddate.strftime('%d %b %Y') %]
 [% END -%]
     </p>
+
+[% book_badges(feature) -%]
 
 [%# If you have a short blurb/description field, show it. %]
 [% IF feature.blurb -%]

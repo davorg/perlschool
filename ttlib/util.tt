@@ -8,3 +8,16 @@
   <img src="/images/[% img %].[% ext %]"[% IF class %] class="[% class %]"[% END %] alt="[% alt %]">
 </picture>
 [% END -%]
+
+[% MACRO book_badges(book) BLOCK -%]
+[% IF book.has_badges -%]
+          <div class="badges">
+[%  IF NOT book.is_published -%]
+            <span class="badge badge-outline">Coming soon</span>
+[%  END -%]
+[%  FOR highlight IN book.highlight_list -%]
+            <span class="badge">[% highlight %]</span>
+[%  END -%]
+          </div>
+[% END -%]
+[% END -%]

@@ -25,16 +25,9 @@
 [% IF feature.is_published -%]
           <p class="muted">Published: [% feature.pubdate.strftime('%d %b %Y') %]</p>
 [% END -%]
-[% IF feature.has_badges -%]
-          <div class="badges">
-[%  IF NOT feature.is_published -%]
-            <span class="badge badge-outline">Coming soon</span>
-[%  END -%]
-[%  FOR highlight IN feature.highlight_list -%]
-            <span class="badge">[% highlight %]</span>
-[%  END -%]
-          </div>
-[% END -%]
+
+[% book_badges(feature) -%]
+
 [% IF feature.upddate -%]
             <p class="muted">Latest update: [% feature.upddate.strftime('%d %b %Y') %]</p>
 [% END -%]
