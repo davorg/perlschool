@@ -10,7 +10,7 @@ my $asin = shift || 'B0C2D875YG';
 
 my $sch = PerlSchool::Schema->get_schema;
 
-for my $ama ($sch->resultset('AmazonSite')->all) {
+for my $ama ($sch->amazon_sites->all) {
   my $domain = $ama->domain;
   my $code   = $ama->code;
   say qq[<a target="_blank"

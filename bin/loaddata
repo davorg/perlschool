@@ -7,7 +7,6 @@ use feature 'say';
 use PerlSchool::Schema;
 
 my $sch = PerlSchool::Schema->get_schema;
-my $rs  = $sch->resultset('Author');
 
 my @cols = qw[title author slug subtitle amazon_isin leanpub_slug
               blurb examples pubdate is_perlschool_book];
@@ -19,7 +18,7 @@ while (<>) {
   @book{@cols} = map { $_ // undef } split /\|/;
   $book{image} = "$book{slug}";
 
-  my $author = $rs->find({ name => $book{author}});
+  my $author = $rs->author({ name => $book{author}});
 
   unless ($author) {
     say "Creating author $book{author}";

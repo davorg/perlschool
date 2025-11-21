@@ -2,4 +2,5 @@
 
 dbicdump -o dump_directory=./lib \
   -o components='["InflateColumn::DateTime"]' \
+  -o schema_components='["Schema::ResultSetNames"]' \
   PerlSchool::Schema dbi:SQLite:./perlschool.db

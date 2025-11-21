@@ -103,13 +103,13 @@ has books => (
 
 sub _build_books {
   return [
-    $_[0]->schema->resultset('Book')->search({
+    $_[0]->schema->books({
         is_perlschool_book => 1,
         is_live => 1,
       }, {
         order_by => { -desc => 'pubdate' },
       },
-    )
+    )->all
   ];
 }
 
@@ -135,7 +135,7 @@ has authors => (
 
 sub _build_authors {
   return [
-    $_[0]->schema->resultset('Author')->perlschool_authors->sorted_authors
+    $_[0]->schema->authors->perlschool_authors->sorted_authors
   ];
 }
 

@@ -9,11 +9,13 @@ use warnings;
 
 use base 'DBIx::Class::Schema';
 
+__PACKAGE__->load_components("Schema::ResultSetNames");
+
 __PACKAGE__->load_namespaces;
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-06-25 16:41:49
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:YMFCxB8Kw6j+Z8UUhMtWjQ
+# Created by DBIx::Class::Schema::Loader v0.07053 @ 2025-11-21 11:03:52
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qASV7kw/PsPiA2EBK2IQTA
 
 sub get_schema {
   my $class = shift;

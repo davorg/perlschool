@@ -8,7 +8,7 @@ use feature 'say';
 use PerlSchool::Schema;
 
 my $sch = PerlSchool::Schema->get_schema;
-my $rs  = $sch->resultset('Book');
+my $rs  = $sch->books;
 
 my $fragment;
 my @books;

@@ -13,7 +13,7 @@ my $sch = PerlSchool::Schema->get_schema;
 
 my %links;
 
-for ($sch->resultset('AmazonSite')->all) {
+for ($sch->amazon_sites->all) {
   $links{$_->code} = $_->uri_for_asin($asin);
 }
 

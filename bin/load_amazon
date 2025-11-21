@@ -7,7 +7,7 @@ use PerlSchool::Schema;
 
 my $sch = PerlSchool::Schema->get_schema;
 
-my $rs = $sch->resultset('AmazonSite');
+my $rs = $sch->amazon_sites;
 
 $rs->delete;
 
