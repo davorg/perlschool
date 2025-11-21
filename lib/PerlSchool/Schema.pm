@@ -18,6 +18,11 @@ __PACKAGE__->load_namespaces;
 sub get_schema {
   my $class = shift;
   my ($db) = @_;
+
+  $db //= $ENV{PERLSCHOOL_DB_FILE};
+
+  die "I don't know which database to use\n" unless defined $db;
+
   return $class->connect("dbi:SQLite:$db");
 }
 

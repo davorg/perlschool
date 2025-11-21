@@ -135,12 +135,7 @@ has authors => (
 
 sub _build_authors {
   return [
-    grep { $_->is_perlschool_author }
-    $_[0]->schema->resultset('Author')->search(
-      undef, {
-        order_by => { -asc => 'sortname' },
-      },
-    )
+    $_[0]->schema->resultset('Author')->perlschool_authors->sorted_authors
   ];
 }
 

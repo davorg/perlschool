@@ -8,21 +8,14 @@
     </p>
   </div>
 
-[% FOR author IN authors;
-     NEXT UNLESS author.is_perlschool_author;
-     author_books = [];
-     FOR book IN author.books.sort('title');
-       NEXT UNLESS book.is_perlschool_book AND book.is_live;
-       author_books.push(book);
-     END;
-     NEXT UNLESS author_books.size -%]
+[% FOR author IN authors -%]
   <h2 class="section-title">[% author.name %]</h2>
 [%   IF author.bio -%]
   <p>[% author.bio %]</p>
 [%   END -%]
 
   <div class="author-book-row">
-[% FOREACH book IN author_books -%]
+[% FOREACH book IN author.books({ is_live => 1, is_perlschool_book => 1 }) -%]
     <a class="author-book-link" href="/books/[% book.slug %]/" title="[% book.title | html %]">
     [% IF book.image -%]
       [% an_image(book.image, book.title, 'author-book-thumb', 'png') -%]
