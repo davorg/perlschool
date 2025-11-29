@@ -22,6 +22,10 @@ sub perlschool_books ($self) {
   return $self->search({ is_perlschool_book => 1 });
 }
 
+sub get_featured_book {
+
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
