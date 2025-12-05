@@ -1,0 +1,234 @@
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="section-title">Frequently Asked Questions</h1>
+          <div class="hero mb-4">
+
+  <div class="row">
+    <!-- FAQ Navigation -->
+    <div class="col-lg-4 mb-4">
+      <h2 class="h4 mb-3">Frequently Asked Questions</h2>
+      <div class="list-group">
+        <a href="#faq-formats" class="list-group-item list-group-item-action">
+          What formats are your books available in?
+        </a>
+        <a href="#faq-epubs" class="list-group-item list-group-item-action">
+          Are your books available as EPUBs?
+        </a>
+        <a href="#faq-kindle" class="list-group-item list-group-item-action">
+          Can I read your books on my Kindle?
+        </a>
+        <a href="#faq-drm" class="list-group-item list-group-item-action">
+          Do you use DRM on your ebooks?
+        </a>
+        <a href="#faq-print" class="list-group-item list-group-item-action">
+          Are there print (physical) versions of your books?
+        </a>
+        <a href="#faq-where-buy" class="list-group-item list-group-item-action">
+          Where can I buy your books?
+        </a>
+        <a href="#faq-download" class="list-group-item list-group-item-action">
+          How do I download my ebook after purchase?
+        </a>
+        <a href="#faq-updates" class="list-group-item list-group-item-action">
+          Will I get free updates if the book is revised?
+        </a>
+        <a href="#faq-perl-versions" class="list-group-item list-group-item-action">
+          Which versions of Perl do your books cover?
+        </a>
+        <a href="#faq-example-code" class="list-group-item list-group-item-action">
+          Is example code available to download?
+        </a>
+        <a href="#faq-sharing" class="list-group-item list-group-item-action">
+          Can I share my ebook with other people?
+        </a>
+        <a href="#faq-typos" class="list-group-item list-group-item-action">
+          How do I report a typo or technical error?
+        </a>
+        <a href="#faq-which-book" class="list-group-item list-group-item-action">
+          I’m new to Perl. Which book should I start with?
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Content -->
+    <div class="col-lg-8">
+      <h2 class="h4 mb-4">Answers</h2>
+
+      <div id="faq-formats" class="mb-4">
+        <h3 class="h5">What formats are your books available in?</h3>
+        <p>
+          Our books are available as <strong>EPUB</strong> and <strong>PDF</strong>:
+        </p>
+        <ul>
+          <li><strong>EPUB</strong> is the standard ebook format used by almost all e-readers, including modern Kindle devices and apps (via Send to Kindle).</li>
+          <li><strong>PDF</strong> is ideal if you prefer reading on a laptop, desktop, or tablet with a fixed page layout.</li>
+        </ul>
+        <p>
+          On <strong>LeanPub</strong>, both EPUB and PDF are available to download.<br>
+          On <strong>Amazon</strong>, the correct format is delivered directly to your Kindle devices and apps.
+        </p>
+      </div>
+
+      <div id="faq-epubs" class="mb-4">
+        <h3 class="h5">Are your books available as EPUBs?</h3>
+        <p>
+          Yes. <strong>EPUB is one of our main formats.</strong>
+        </p>
+        <ul>
+          <li>On <strong>LeanPub</strong>, you can download an EPUB file directly.</li>
+          <li>On <strong>Amazon</strong>, newer Kindles and Kindle apps accept EPUB via <strong>Send to Kindle</strong>, which will convert it behind the scenes for you.</li>
+        </ul>
+        <p>
+          If you’re not sure how to get an EPUB onto your reading device, just ask and we’ll happily point you at the right instructions.
+        </p>
+      </div>
+
+      <div id="faq-kindle" class="mb-4">
+        <h3 class="h5">Can I read your books on my Kindle?</h3>
+        <p>
+          Yes. You have two options:
+        </p>
+        <ul>
+          <li><strong>Buy on Amazon</strong> – the book will be delivered straight to your Kindle or Kindle app. You don’t need to think about file formats.</li>
+          <li><strong>Buy on LeanPub</strong> – download the <strong>EPUB</strong> and use <strong>Send to Kindle</strong> (or the Kindle app’s built-in import feature) to add it to your library.</li>
+        </ul>
+        <p>
+          Either way, you’ll end up with a readable copy on your Kindle.
+        </p>
+      </div>
+
+      <div id="faq-drm" class="mb-4">
+        <h3 class="h5">Do you use DRM on your ebooks?</h3>
+        <p>
+          No. We don’t enable <strong>DRM (Digital Rights Management)</strong> on our books.
+        </p>
+        <ul>
+          <li>LeanPub downloads (EPUB and PDF) are <strong>DRM-free</strong>, so you can keep backups and read them on your preferred devices.</li>
+          <li>On Amazon, we opt out of Kindle DRM when we publish.</li>
+        </ul>
+        <p>
+          We trust our readers; please just don’t share the files in ways that would hurt the authors.
+        </p>
+      </div>
+
+      <div id="faq-print" class="mb-4">
+        <h3 class="h5">Are there print (physical) versions of your books?</h3>
+        <p>
+          Not at the moment. <strong>All our books are currently ebook-only.</strong>
+        </p>
+        <p>
+          We are interested in offering print editions in the future, and reader demand will help us prioritise that. If there’s a particular title you’d love in print, let us know — it’s useful feedback.
+        </p>
+      </div>
+
+      <div id="faq-where-buy" class="mb-4">
+        <h3 class="h5">Where can I buy your books?</h3>
+        <p>
+          Right now we publish through:
+        </p>
+        <ul>
+          <li><strong>Amazon</strong> – for Kindle devices and apps.</li>
+          <li><strong>LeanPub</strong> – for DRM-free EPUB and PDF downloads.</li>
+        </ul>
+        <p>
+          As we grow, we may add other platforms, but we’d rather support a small number of outlets well than spread ourselves too thin.
+        </p>
+      </div>
+
+      <div id="faq-download" class="mb-4">
+        <h3 class="h5">How do I download my ebook after purchase?</h3>
+        <p>
+          It depends where you bought it:
+        </p>
+        <p>
+          <strong>LeanPub:</strong><br>
+          After purchase, you’ll see a download page with links for EPUB and PDF. You can also log into your LeanPub account at any time and re-download your books.
+        </p>
+        <p>
+          <strong>Amazon:</strong><br>
+          The book is automatically delivered to your registered Kindle devices and apps. If you don’t see it immediately, check that your device is online and that you’re signed into the correct Amazon account.
+        </p>
+        <p>
+          If you still can’t find your book, get in touch with your order details and we’ll help you track it down.
+        </p>
+      </div>
+
+      <div id="faq-updates" class="mb-4">
+        <h3 class="h5">Will I get free updates if the book is revised?</h3>
+        <p>
+          On <strong>LeanPub</strong>, yes: when we release a new version (for example, to cover a newer Perl or fix errata), you can usually download the updated files <strong>at no extra cost</strong> from your LeanPub library.
+        </p>
+        <p>
+          On <strong>Amazon</strong>, updates are more limited, but where Amazon supports pushing updated versions, we’ll make use of that.
+        </p>
+        <p>
+          We’ll always try to keep the “current edition” as accurate and up to date as possible.
+        </p>
+      </div>
+
+      <div id="faq-perl-versions" class="mb-4">
+        <h3 class="h5">Which versions of Perl do your books cover?</h3>
+        <p>
+          It varies by title, but we aim to be <strong>firmly in “modern Perl” territory</strong>.
+        </p>
+
+        <p>
+          Perl has strong backwards compatibility, so older examples usually still work, but where a book is designed for a newer Perl we’ll say so explicitly.
+        </p>
+      </div>
+
+      <div id="faq-example-code" class="mb-4">
+        <h3 class="h5">Is example code available to download?</h3>
+        <p>
+          Yes. Example code for our technical titles is available from the <strong>Perl School website</strong>.
+        </p>
+        <p>
+          Each book page will include a link to the corresponding code download, so you can:
+        </p>
+        <ul>
+          <li>Follow along while reading,</li>
+          <li>Run and experiment with the examples, and</li>
+          <li>Use snippets in your own learning and projects.</li>
+        </ul>
+        <p>
+          Check the licence notes in the code if you’re planning to reuse larger chunks in a publicly distributed project.
+        </p>
+      </div>
+
+      <div id="faq-sharing" class="mb-4">
+        <h3 class="h5">Can I share my ebook with other people?</h3>
+        <p>
+          A purchase is for <strong>one reader</strong>.
+        </p>
+        <p>
+          You’re welcome to put the book on your own devices (for example, your laptop, tablet, and e-reader), but please don’t distribute the files more widely.
+        </p>
+        <p>
+          If you’re interested in using one of our books with a team, class, or user group, drop us a line and tell us a bit about what you have in mind — we can talk about what’s possible.
+        </p>
+      </div>
+
+      <div id="faq-typos" class="mb-4">
+        <h3 class="h5">How do I report a typo or technical error?</h3>
+        <p>
+          We’re always grateful for corrections.
+        </p>
+        <p>
+          The easiest way is to <strong>email us</strong> with:
+        </p>
+        <ul>
+          <li>The book title,</li>
+          <li>The chapter/section,</li>
+          <li>The exact text or code you’re looking at, and</li>
+          <li>A short note on what you think is wrong.</li>
+        </ul>
+        <p>
+          For some books we may also provide an online errata page; if so, it’ll be linked from the book’s page on the Perl School site.
+        </p>
+      </div>
+    </div>
+  </div>
+
+          </div>
+        </div>
+      </div>

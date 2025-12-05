@@ -113,6 +113,9 @@
             <a class="nav-link" href="https://cover.perlschool.com/">Cover maker</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/faq/">FAQ</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/about/">About</a>
           </li>
           <li class="nav-item">
