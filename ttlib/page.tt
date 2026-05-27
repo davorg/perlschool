@@ -187,7 +187,8 @@
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Perl School [% buildyear %] /
-        Code <a href="https://github.com/davorg/perlschool">on Github</a></p>
+        Code <a href="https://github.com/davorg/perlschool">on Github</a> /
+        Perl School Publishing is a trading name of Magnum Solutions Ltd.</p>
     </div>
     <!-- /.container -->
   </footer>
