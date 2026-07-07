@@ -1,12 +1,12 @@
 [% PROCESS util.tt -%]
 [% title = 'Perl School Publishing';
    description = 'Perl eBooks written by experts';
-   image = 'https://perlschool.com/images/perlschool-logo-sq';
+   image = 'https://perlschool.com/images/perlschool-logo-og';
    type = 'website';
    IF template.name.match('^book\.');
      title = feature.title _ ' - ' _ title;
      description = feature.blurb;
-     image = 'https://perlschool.com/images/' _ feature.image;
+     image = 'https://perlschool.com/images/' _ feature.image _ '-og';
      type = 'book';
    ELSIF ! template.name.match('^index');
      page_title = template.name.split('\.').0.ucfirst;
@@ -54,7 +54,7 @@
   <meta name="twitter:site" content="@perl_school">
   <meta name="twitter:title" content="[% title %]">
   <meta name="twitter:description" content="[% description %]">
-  <meta name="twitter:image" content="[% image %]">
+  <meta name="twitter:image" content="[% image %].png">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
