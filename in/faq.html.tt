@@ -114,10 +114,12 @@
       <div id="faq-print" class="mb-4">
         <h3 class="h5">Are there print (physical) versions of your books?</h3>
         <p>
-          Not at the moment. <strong>All our books are currently ebook-only.</strong>
+          We have recently published a paperback edition of
+          <a href=""><em>Design Patterns with Modern Perl</em></a>.
+          This edition is available from Amazon.
         </p>
         <p>
-          We are interested in offering print editions in the future, and reader demand will help us prioritise that. If there’s a particular title you’d love in print, let us know — it’s useful feedback.
+          We plan to expand this approach to other books in  the future.
         </p>
       </div>
 
