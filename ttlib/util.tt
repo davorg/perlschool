@@ -12,8 +12,11 @@
 [% MACRO book_badges(book) BLOCK -%]
 [% IF book.has_badges -%]
           <div class="badges">
+[%  IF book.has_paperback -%]
+            <span class="badge">Paperback available</span>
+[%  END -%]
 [%  IF NOT book.is_published -%]
-            <span class="badge badge-outline">Coming soon</span>
+            <span class="badge">Coming soon</span>
 [%  END -%]
 [%  FOR highlight IN book.highlight_list -%]
             <span class="badge">[% highlight %]</span>
