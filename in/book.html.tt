@@ -25,6 +25,11 @@
       <br><strong>Latest update:</strong> [% feature.upddate.strftime('%d %b %Y') %]
 [% END -%]
     </p>
+[% IF feature.isbn -%]
+    <p class="muted mb-2">
+      <strong>ISBN:</strong> [% feature.isbn %]
+    </p>
+[% END -%]
 
 [% book_badges(feature) -%]
 
