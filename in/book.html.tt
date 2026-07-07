@@ -88,10 +88,10 @@
 [%   IF feature.leanpub_slug -%]
       <a class="btn btn-primary" href="https://leanpub.com/[% feature.leanpub_slug %]">Buy on Leanpub</a>
 [%   END -%]
-[%   IF feature.amazon_isin -%]
+[%   IF feature.amazon_asin -%]
       <a
         class="btn btn-outline-primary"
-        data-amazon-asin="[% feature.amazon_isin | html %]"
+        data-amazon-asin="[% feature.amazon_asin | html %]"
         data-amazon-text="Buy on Amazon"
       ></a>
 [%   END -%]

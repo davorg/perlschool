@@ -76,7 +76,7 @@ __PACKAGE__->table("book");
   is_nullable: 0
   size: 200
 
-=head2 amazon_isin
+=head2 amazon_asin
 
   data_type: 'varchar'
   is_nullable: 1
@@ -149,7 +149,7 @@ __PACKAGE__->add_columns(
   { data_type => "varchar", is_nullable => 0, size => 1000 },
   "image",
   { data_type => "varchar", is_nullable => 0, size => 200 },
-  "amazon_isin",
+  "amazon_asin",
   { data_type => "varchar", is_nullable => 1, size => 20 },
   "leanpub_slug",
   { data_type => "varchar", is_nullable => 1, size => 50 },
@@ -221,8 +221,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07053 @ 2025-10-28 13:02:23
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:NcGzgczhvBQtBtBR5e2pWA
+# Created by DBIx::Class::Schema::Loader v0.07053 @ 2026-07-07 09:32:52
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:UDJIxp363QqzEwau8uOCxg
 
 use Moo;
 with 'MooX::Role::JSON_LD';

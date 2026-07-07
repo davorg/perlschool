@@ -8,7 +8,7 @@ use PerlSchool::Schema;
 
 my $sch = PerlSchool::Schema->get_schema;
 
-my @cols = qw[title author slug subtitle amazon_isin leanpub_slug
+my @cols = qw[title author slug subtitle amazon_asin leanpub_slug
               blurb examples pubdate is_perlschool_book];
 
 while (<>) {
