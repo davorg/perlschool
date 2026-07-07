@@ -1,7 +1,7 @@
 [% PROCESS util.tt -%]
 [% title = 'Perl School Publishing';
    description = 'Perl eBooks written by experts';
-   image = 'https://perlschool.com/images/perlschool-logo-sq.png';
+   image = 'https://perlschool.com/images/perlschool-logo-sq';
    type = 'website';
    IF template.name.match('^book\.');
      title = feature.title _ ' - ' _ title;
