@@ -27,7 +27,8 @@
     </p>
 [% IF feature.isbn -%]
     <p class="muted mb-2">
-      <strong>ISBN:</strong> [% feature.isbn %]
+      <strong>ISBN:</strong>
+      <a target="_blank" href="https://isbnsearch.org/isbn/[% feature.isbn %]">[% feature.isbn %]</a>
     </p>
 [% END -%]
 
